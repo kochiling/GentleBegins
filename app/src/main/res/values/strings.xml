@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">GentleBegins</string>
+    <string name="feed_b">Feeding</string>
+    <string name="record_r">Record Routines</string>
+    <string name="sleep_b">Sleeping</string>
+    <string name="diaper_b">Diaper</string>
+    <string name="medicine_b">Medicine</string>
+    <string name="summary_b">Check Summary</string>
+    <string name="feeding_r">Feeding Record</string>
+    <string name="milk_feed">Milk Feeding</string>
+    <string name="solid_food">Solid Food</string>
+    <string name="diaper_r">Diaper Tracker</string>
+    <string name="date">Date: </string>
+    <string name="time">Time: </string>
+    <string name="diaper_status">Diaper Status: </string>
+    <string name="diaper_status1"> Wet </string>
+    <string name="diaper_status2"> Dry </string>
+    <string name="diaper_Notes"> Additional Notes:  </string>
+    <string name="save"> Save </string>
+    <string name="milkfeed_r">Milk Feeding Record</string>
+    <string name="milktype">Type of Milk</string>
+    <string name="milkamount">Amount </string>
+
+    <string-array name="milk_type">
+        <item>Breast Milk</item>
+        <item>Formula Milk</item>
+    </string-array>
+
+    <string-array name="milk_amount">
+        <item>ml</item>
+        <item>oz</item>
+    </string-array>
+
+</resources>
+
+
+
+

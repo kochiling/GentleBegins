@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MilkFeeding_record">
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="4dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/milkfeed_record"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="@string/milk_feed"
+            android:textAlignment="center"
+            android:textSize="35sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+        </TextView>
+
+        <RelativeLayout
+            android:id="@+id/M2Layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/milk_type1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/milktype"
+                android:textSize="25sp"
+                tools:ignore="TextSizeCheck">
+
+            </TextView>
+
+            <Spinner
+                android:id="@+id/MilkType_spinner"
+                android:layout_width="199dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="50dp"
+                android:spinnerMode="dropdown"
+                android:textSize="35sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/M4Layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/milk_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/milkamount"
+                android:textSize="25sp"
+                tools:ignore="TextSizeCheck">
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/editTextAmount"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="50dp"
+                android:autofillHints=""
+                android:background="@drawable/rectangle"
+                android:ems="10"
+                android:inputType="number"
+                tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+
+            <Spinner
+                android:id="@+id/MilkAmount_spinner"
+                android:layout_width="130dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="130dp"
+                android:layout_marginTop="50dp"
+                android:spinnerMode="dropdown"
+                android:textSize="35sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/M1Layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/milktext_date1"
+                android:layout_width="76dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/date"
+                android:textSize="25sp"
+                tools:ignore="TextSizeCheck">
+
+            </TextView>
+
+
+            <EditText
+                android:id="@+id/milkEdit_date"
+                android:layout_width="250dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="100dp"
+                android:autofillHints=""
+                android:clickable="true"
+                android:ems="10"
+                android:background="@drawable/rectangle"
+                android:focusable="true"
+                android:inputType="date"
+                tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/M3Layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/milktext_time1"
+                android:layout_width="76dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/time"
+                android:textSize="25sp"
+                tools:ignore="TextSizeCheck">
+
+            </TextView>
+
+
+            <EditText
+                android:id="@+id/milkEdit_time"
+                android:layout_width="250dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="100dp"
+                android:autofillHints=""
+                android:clickable="true"
+                android:ems="10"
+                android:background="@drawable/rectangle"
+                android:focusable="true"
+                android:inputType="date"
+                tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/milkfeed_save"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:text="@string/save"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/cylinder_btn"
+            android:backgroundTint="@color/green">
+
+        </Button>
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
