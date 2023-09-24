@@ -31,5 +31,177 @@
             app:layout_constraintTop_toTopOf="parent">
         </TextView>
 
+        <RelativeLayout
+            android:id="@+id/F1Layout"
+            android:layout_width="fill_parent"
+            android:layout_height="170dp"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/milk_type1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/food_type"
+                android:textSize="25sp"
+                tools:ignore="TextSizeCheck">
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/editTextFoodType"
+                android:layout_width="355dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="10dp"
+                android:autofillHints=""
+                android:background="@drawable/rectangle"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/F2Layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/solidFood_notes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/food_notes"
+                android:textSize="25sp"
+                tools:ignore="TextSizeCheck">
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/editTextSolidFoodNotes"
+                android:layout_width="355dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="10dp"
+                android:autofillHints=""
+                android:background="@drawable/rectangle"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/F3Layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/foodtext_date1"
+                android:layout_width="76dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/date"
+                android:textSize="25sp"
+                tools:ignore="TextSizeCheck">
+
+            </TextView>
+
+
+            <EditText
+                android:id="@+id/foodEdit_date"
+                android:layout_width="250dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="100dp"
+                android:autofillHints=""
+                android:clickable="true"
+                android:ems="10"
+                android:background="@drawable/rectangle"
+                android:focusable="true"
+                android:inputType="date"
+                tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/F4Layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/foodtext_time1"
+                android:layout_width="76dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/time"
+                android:textSize="25sp"
+                tools:ignore="TextSizeCheck">
+
+            </TextView>
+
+
+            <EditText
+                android:id="@+id/foodEdit_time"
+                android:layout_width="250dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="100dp"
+                android:autofillHints=""
+                android:clickable="true"
+                android:ems="10"
+                android:background="@drawable/rectangle"
+                android:focusable="true"
+                android:inputType="date"
+                tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/foodfeed_save"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:text="@string/save"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:textSize="25sp"
+            android:background="@drawable/cylinder_btn"
+            android:backgroundTint="@color/green">
+
+        </Button>
+
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

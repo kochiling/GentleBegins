@@ -32,7 +32,7 @@
         </TextView>
 
         <RelativeLayout
-            android:id="@+id/M2Layout"
+            android:id="@+id/M1Layout"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -69,7 +69,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/M4Layout"
+            android:id="@+id/M2Layout"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -120,7 +120,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/M1Layout"
+            android:id="@+id/M3Layout"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -159,7 +159,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/M3Layout"
+            android:id="@+id/M4Layout"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"

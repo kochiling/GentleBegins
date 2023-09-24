@@ -20,6 +20,8 @@
     <string name="milkfeed_r">Milk Feeding Record</string>
     <string name="milktype">Type of Milk</string>
     <string name="milkamount">Amount </string>
+    <string name="food_type">Type of Food </string>
+    <string name="food_notes">Notes </string>
 
     <string-array name="milk_type">
         <item>Breast Milk</item>
