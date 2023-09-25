@@ -6,4 +6,164 @@
     android:layout_height="match_parent"
     tools:context=".Sleeping_Record">
 
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="4dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/sleep_record"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="@string/sleep_record"
+            android:textAlignment="center"
+            android:textSize="35sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+        </TextView>
+
+
+
+        <RelativeLayout
+            android:id="@+id/S1Layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/sleep_duration1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/sleep_duration"
+                android:textSize="25sp"
+                tools:ignore="TextSizeCheck">
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/editTextSleepDuration"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:inputType="number"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="50dp"
+                android:autofillHints=""
+                android:background="@drawable/rectangle"
+                tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/S2Layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/sleeptext_date1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/sleep_timeStart"
+                android:textSize="25sp"
+                tools:ignore="TextSizeCheck">
+
+            </TextView>
+
+
+            <EditText
+                android:id="@+id/sleepEdit_date"
+                android:layout_width="250dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="50dp"
+                android:autofillHints=""
+                android:clickable="true"
+                android:ems="10"
+                android:background="@drawable/rectangle"
+                android:focusable="true"
+                android:inputType="date"
+                tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/S3Layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/sleep_type1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/sleep_Mode"
+                android:textSize="25sp"
+                tools:ignore="TextSizeCheck">
+
+            </TextView>
+
+            <Spinner
+                android:id="@+id/SleepMode_spinner"
+                android:layout_width="199dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="50dp"
+                android:spinnerMode="dropdown"
+                android:textSize="35sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/sleep_save"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:text="@string/save"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:textSize="25sp"
+            android:background="@drawable/cylinder_btn"
+            android:backgroundTint="@color/green">
+
+        </Button>
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
