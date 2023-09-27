@@ -29,6 +29,13 @@
     <string name="medicine_record">Medicine Tracker</string>
     <string name="symptoms">Symptoms</string>
     <string name="type_medicine">Type of Medicine</string>
+    <string name="reminder">Reminder</string>
+    <string name="no_reminder">No Reminders Set\nClick + to add the reminders</string>
+    <string name="popup_save">Save</string>
+    <string name="popup_title">Title</string>
+    <string name="popup_select">Select</string>
+    <string name="date_n_time">Date and Time</string>
+
 
     <string-array name="milk_type">
         <item>Breast Milk</item>
