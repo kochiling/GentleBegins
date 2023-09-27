@@ -55,7 +55,6 @@
 
             </TextView>
 
-
             <EditText
                 android:id="@+id/diaperEdit_date"
                 android:layout_width="250dp"
