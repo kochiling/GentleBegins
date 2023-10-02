@@ -3,7 +3,7 @@
     android:layout_width="300dp"
     android:layout_height="350dp"
     android:orientation="vertical"
-    android:background="#CCCCFF"
+    android:background="#EAEAF6"
     android:layout_gravity="center"
     android:padding="25dp">
 
@@ -11,7 +11,7 @@
         android:id="@+id/message"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_gravity="center"
         android:hint="@string/popup_title"
         android:gravity="center"
@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="60dp">
+        android:layout_marginTop="30dp">
 
         <TextView
             android:id="@+id/date"
@@ -30,6 +30,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
+            android:background="@drawable/rectangle"
             android:hint="@string/date_n_time"
             android:layout_gravity="center"/>
 

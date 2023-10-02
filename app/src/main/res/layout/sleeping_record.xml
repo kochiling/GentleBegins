@@ -6,38 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".Sleeping_Record">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar1"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/morandi_purple"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/AppTheme.PopupOverlay" />
+
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="4dp"
         android:orientation="vertical"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/sleep_record"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:text="@string/sleep_record"
-            android:textAlignment="center"
-            android:textSize="35sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-        </TextView>
-
 
 
         <RelativeLayout
             android:id="@+id/S1Layout"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="80dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -94,19 +90,56 @@
             </TextView>
 
 
-            <EditText
-                android:id="@+id/sleepEdit_date"
+            <Button
+                android:id="@+id/sleepEdit_Start"
                 android:layout_width="250dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="50dp"
                 android:autofillHints=""
-                android:clickable="true"
-                android:ems="10"
-                android:background="@drawable/rectangle"
-                android:focusable="true"
-                android:inputType="date"
-                tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+                android:background="@color/morandi_purple"
+                android:text="@string/select_date_time"
+                android:textSize="18sp"
+                tools:ignore="LabelFor,SpeakableTextPresentCheck,TextSizeCheck,DuplicateSpeakableTextCheck" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/S4Layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/sleeptext_date2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/sleep_timeEnd"
+                android:textSize="25sp"
+                tools:ignore="TextSizeCheck">
+
+            </TextView>
+
+
+            <Button
+                android:id="@+id/sleepEdit_End"
+                android:layout_width="250dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="50dp"
+                android:autofillHints=""
+                android:background="@color/morandi_purple"
+                android:text="@string/select_date_time"
+                android:textSize="18sp"
+                tools:ignore="LabelFor,SpeakableTextPresentCheck,TextSizeCheck" />
 
 
         </RelativeLayout>
@@ -149,7 +182,7 @@
         </RelativeLayout>
 
         <Button
-            android:id="@+id/sleep_save"
+            android:id="@+id/sleep_saveBtn"
             android:layout_width="320dp"
             android:layout_height="wrap_content"
             android:text="@string/save"
@@ -159,7 +192,7 @@
             android:layout_marginEnd="20dp"
             android:textSize="25sp"
             android:background="@drawable/cylinder_btn"
-            android:backgroundTint="@color/green">
+            android:backgroundTint="@color/morandi_purple">
 
         </Button>
 

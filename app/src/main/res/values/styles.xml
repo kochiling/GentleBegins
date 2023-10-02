@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <!-- Customize the pop-up menu items here -->
+        <item name="android:popupBackground">@color/morandi_pink</item>
+        <item name="android:textColor">@color/black</item>
+        <!-- Add any other customizations you need -->
+    </style>
+</resources>

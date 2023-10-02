@@ -6,6 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".Record_routines">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_record"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:textSize="25sp"
+        android:background="@color/green"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageButton
+            android:id="@+id/alarmIcon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="end"
+            app:srcCompat="@drawable/alarm_icon"
+            android:contentDescription="@string/reminder"
+            android:backgroundTint="@color/green"
+            android:scaleType="fitXY"
+            android:layout_marginEnd="16dp"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -187,10 +212,11 @@
         <Button
             android:id="@+id/summaryButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:text="@string/summary_b"
             android:textSize="20sp"
             tools:ignore="VisualLintButtonSize" />
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

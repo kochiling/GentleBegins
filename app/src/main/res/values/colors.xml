@@ -9,6 +9,11 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="morandi_pink">#E2C6C4</color>
+    <color name="morandi_purple">#D7CDD5</color>
+    <color name="morandi_blue">#B3CAD8</color>
+
+
     <color name="jd_red">#CB0000</color>
     <color name="jd_light">#E5001F</color>
 

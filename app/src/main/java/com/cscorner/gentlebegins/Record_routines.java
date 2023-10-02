@@ -1,13 +1,17 @@
 package com.cscorner.gentlebegins;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import java.util.Objects;
 
 public class Record_routines extends AppCompatActivity {
 
@@ -17,7 +21,6 @@ public class Record_routines extends AppCompatActivity {
     ImageButton medicineButton;
     Button summaryButton;
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +32,12 @@ public class Record_routines extends AppCompatActivity {
         diaperButton = findViewById(R.id.diaperButton);
         medicineButton = findViewById(R.id.medicineButton);
         summaryButton = findViewById(R.id.summaryButton);
+
+        Toolbar toolbar = findViewById(R.id.toolbar_record);
+        setSupportActionBar(toolbar);
+        Objects.requireNonNull(getSupportActionBar()).setTitle("");
+        // Enable the Up button (back button)
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
 
         // Set an onClickListener for the ImageButton
@@ -65,6 +74,23 @@ public class Record_routines extends AppCompatActivity {
             }
         });
 
+        ImageButton alarmIcon = findViewById(R.id.alarmIcon);
+        alarmIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Record_routines.this, Reminder1.class);
+                startActivity(intent);
+            }
+        });
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {// Handle the Up button click (e.g., navigate back)
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

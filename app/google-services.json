@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "661440632916",
+    "project_id": "gentlebegins",
+    "storage_bucket": "gentlebegins.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:661440632916:android:c85264e3db72143e69b5c1",
+        "android_client_info": {
+          "package_name": "com.cscorner.gentlebegins"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiaFbsPkVuRnn9YmfWik_X8xQZc5z6qgw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

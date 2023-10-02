@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".MilkFeeding_record">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:textSize="25sp"
+        android:background="@color/green"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
@@ -17,25 +28,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/milkfeed_record"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:text="@string/milk_feed"
-            android:textAlignment="center"
-            android:textSize="35sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-        </TextView>
 
         <RelativeLayout
             android:id="@+id/M1Layout"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="100dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -143,18 +141,16 @@
             </TextView>
 
 
-            <EditText
+            <Button
                 android:id="@+id/milkEdit_date"
-                android:layout_width="250dp"
+                android:layout_width="150dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="100dp"
                 android:autofillHints=""
-                android:clickable="true"
-                android:ems="10"
-                android:background="@drawable/rectangle"
-                android:focusable="true"
-                android:inputType="date"
-                tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+                android:background="@color/green"
+                android:text="@string/select_date"
+                android:textSize="18sp"
+                tools:ignore="LabelFor,SpeakableTextPresentCheck,TextSizeCheck" />
 
         </RelativeLayout>
 
@@ -182,19 +178,16 @@
             </TextView>
 
 
-            <EditText
+            <Button
                 android:id="@+id/milkEdit_time"
-                android:layout_width="250dp"
+                android:layout_width="150dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="100dp"
                 android:autofillHints=""
-                android:clickable="true"
-                android:ems="10"
-                android:background="@drawable/rectangle"
-                android:focusable="true"
-                android:inputType="date"
-                tools:ignore="LabelFor,SpeakableTextPresentCheck" />
-
+                android:background="@color/green"
+                android:text="@string/select_time"
+                android:textSize="18sp"
+                tools:ignore="LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck,TextSizeCheck" />
         </RelativeLayout>
 
         <Button
