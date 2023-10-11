@@ -88,6 +88,7 @@ public class MilkFeeding_record extends AppCompatActivity {
                 String message = type + amount + unit + date + time;
                 Toast.makeText(MilkFeeding_record.this, message, Toast.LENGTH_LONG).show();
 
+
             }
         });
     }

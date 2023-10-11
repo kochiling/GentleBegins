@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">GentleBegins</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="click_to_login">Click to login\n</string>
+    <string name="click_to_register">Click to register</string>
     <string name="feed_b">Feeding</string>
     <string name="record_r">Record Routines</string>
     <string name="sleep_b">Sleeping</string>
