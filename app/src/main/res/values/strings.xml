@@ -1,5 +1,11 @@
 <resources>
-    <string name="app_name">GentleBegins</string>
+    <string name="app_name">Gentle Begins</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="click_to_login">Click to login\n</string>
+    <string name="click_to_register">Click to register</string>
     <string name="feed_b">Feeding</string>
     <string name="record_r">Record Routines</string>
     <string name="sleep_b">Sleeping</string>
@@ -25,6 +31,7 @@
     <string name="sleep_record">Sleeping Tracker</string>
     <string name="sleep_duration">Duration (in Minutes)</string>
     <string name="sleep_timeStart">Time Start</string>
+    <string name="sleep_timeEnd">Time End</string>
     <string name="sleep_Mode">Sleep Mode</string>
     <string name="medicine_record">Medicine Tracker</string>
     <string name="symptoms">Symptoms</string>
@@ -38,6 +45,9 @@
     <string name="select_time">Select time</string>
     <string name="select_date">Select date</string>
     <string name="select_date_time">Select date and time</string>
+    <string name="homepage">Home Page</string>
+    <string name="profile_pic">"Profile "</string>
+    <string name="welcome">Welcome Back</string>
 
 
     <string-array name="milk_type">
@@ -55,6 +65,10 @@
         <item>Light Sleep</item>
         <item>Deep Sleep</item>
     </string-array>
+    <string name="title_activity_summary_page">Summary_page</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 
 </resources>
 
