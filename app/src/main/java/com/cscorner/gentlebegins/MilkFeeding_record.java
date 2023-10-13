@@ -18,8 +18,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
+
 public class MilkFeeding_record extends AppCompatActivity {
 
     Button milkEditDate;
@@ -33,6 +40,7 @@ public class MilkFeeding_record extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FirebaseAuth dbAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.milk_feeding_record);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -85,9 +93,23 @@ public class MilkFeeding_record extends AppCompatActivity {
                 String unit = MilkAmount_spinner.getSelectedItem().toString();
                 String amount = milk_Amount.getText().toString();
 
+                String user_id = Objects.requireNonNull(dbAuth.getCurrentUser()).getUid();
+                DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users")
+                        .child(user_id).child("Feeding").child("Bottle Feeding").child("Time Stamp");
+
+                Map<String, Object> newPost = new HashMap<>();
+                newPost.put("Type_milk",type);
+                newPost.put("Amount", amount);
+                newPost.put("Unit",unit);
+                newPost.put("Date",date);
+                newPost.put("Time",time);
+
+                current_user_db.child(date).child(time).setValue(newPost);
+
                 String message = type + amount + unit + date + time;
                 Toast.makeText(MilkFeeding_record.this, message, Toast.LENGTH_LONG).show();
 
+                milk_Amount.setText("");
 
             }
         });
@@ -121,8 +143,13 @@ public class MilkFeeding_record extends AppCompatActivity {
                     @SuppressLint("SetTextI18n")
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        // Format the time as "9:00" if the minute is less than 10
+                        String formattedTime = (minute < 10) ?
+                                hourOfDay + ":0" + minute :
+                                hourOfDay + ":" + minute;
+
                         // Update the time button with the selected time
-                        milkEditTime.setText(hourOfDay + ":" + minute);
+                        milkEditTime.setText(formattedTime);
                     }
                 }, hour, minute, false);
 

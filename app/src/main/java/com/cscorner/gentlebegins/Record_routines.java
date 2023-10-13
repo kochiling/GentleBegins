@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.Objects;
 
 public class Record_routines extends AppCompatActivity {
@@ -78,11 +80,20 @@ public class Record_routines extends AppCompatActivity {
         alarmIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Record_routines.this, Reminder1.class);
+                Intent intent = new Intent(Record_routines.this, Reminder_main.class);
                 startActivity(intent);
             }
         });
 
+    }
+
+    public void logout(View view) {
+        FirebaseAuth.getInstance().signOut(); // Sign out the user
+
+        // Redirect to a login activity
+        Intent intent = new Intent(this, Login.class);
+        startActivity(intent);
+        finish(); // Close the current activity
     }
 
     @Override

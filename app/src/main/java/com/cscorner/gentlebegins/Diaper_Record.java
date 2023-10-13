@@ -12,17 +12,23 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.Calendar;
 import java.util.Objects;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class Diaper_Record extends AppCompatActivity {
 
-    // Declare your UI elements
     Button diaperEditDate;
     Button diaperEditTime;
     RadioButton radioButton1;
@@ -36,6 +42,7 @@ public class Diaper_Record extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FirebaseAuth dbAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.diaper_record);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -88,6 +95,19 @@ public class Diaper_Record extends AppCompatActivity {
                 }
                 String notes = diaperEditNotes.getText().toString();
 
+                String user_id = Objects.requireNonNull(dbAuth.getCurrentUser()).getUid();
+                DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users")
+                        .child(user_id).child("Diaper").child("Time Stamp");
+
+                Map<String, Object> newPost = new HashMap<>();
+                newPost.put("Diaper_status",status);
+                newPost.put("Diaper_notes", notes);
+                newPost.put("Date",date);
+                newPost.put("Time",time);
+
+                current_user_db.child(date).child(time).setValue(newPost);
+
+
                 // For demonstration, show a Toast message with the collected data
                 String message = "Date: " + date + "\nTime: " + time + "\nStatus: " + status + "\nNotes: " + notes;
                 Toast.makeText(Diaper_Record.this, message, Toast.LENGTH_LONG).show();
@@ -124,8 +144,13 @@ public class Diaper_Record extends AppCompatActivity {
                     @SuppressLint("SetTextI18n")
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        // Format the time as "9:00" if the minute is less than 10
+                        String formattedTime = (minute < 10) ?
+                                hourOfDay + ":0" + minute :
+                                hourOfDay + ":" + minute;
+
                         // Update the time button with the selected time
-                        diaperEditTime.setText(hourOfDay + ":" + minute);
+                        diaperEditTime.setText(formattedTime);
                     }
                 }, hour, minute, false);
 
