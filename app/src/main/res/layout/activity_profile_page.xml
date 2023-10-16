@@ -10,11 +10,12 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="506dp"
         android:layout_height="109dp"
+        android:layout_marginBottom="4dp"
         android:background="#9C27B0"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.32"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="729dp">
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageButton
             android:id="@+id/imageButton4"
@@ -70,18 +71,18 @@
         android:layout_height="59dp"
         android:text="Baby Profile"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="180dp"
-        tools:layout_editor_absoluteY="211dp" />
+        tools:layout_editor_absoluteX="134dp"
+        tools:layout_editor_absoluteY="180dp" />
 
     <TableLayout
         android:layout_width="378dp"
         android:layout_height="387dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.635">
+        app:layout_constraintVertical_bias="0.747">
 
         <TableRow
             android:layout_width="match_parent"
