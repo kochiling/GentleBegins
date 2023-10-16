@@ -48,6 +48,27 @@
     <string name="homepage">Home Page</string>
     <string name="profile_pic">"Profile "</string>
     <string name="welcome">Welcome Back</string>
+    <string name="allUserButton">User</string>
+    <string name="addTipsButton">Additional Tips</string>
+    <string name="AdditionalTips">Additional Tips</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="link">URL Link</string>
+    <string name="addTipsPic">Click to upload image</string>
+    <string name="SaveAddTips">Save</string>
+    <string name="Back">Back</string>
+    <string name="personalinfo">Personal Information</string>
+    <string name="ParentsName">Parent\'s name</string>
+    <string name="BabysName">Baby\'s name</string>
+    <string name="BabysGender">Baby\'s gender</string>
+    <string name="BabysBirthday">Baby\'s Birthday</string>
+    <string name="Relationship">Relationship to the baby</string>
+    <string name="PersonalinfoDone">Save</string>
+    <string name="usersdetils">User Details</string>
+    <string name="admin">Admin</string>
+    <string name="userdetails">User Details</string>
+    <string name="additionaltips">Additional Tips</string>
+    <string name="addtips">Add additional tips</string>
 
 
     <string-array name="milk_type">
@@ -69,6 +90,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="logout">Logout</string>
 
 </resources>
 

@@ -27,7 +27,7 @@ public class Register extends AppCompatActivity {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-            Intent intent = new Intent(getApplicationContext(), com.cscorner.gentlebegins.Record_routines.class);
+            Intent intent = new Intent(getApplicationContext(), com.cscorner.gentlebegins.PersonalInformation.class);
             startActivity(intent);
             finish();
         }
