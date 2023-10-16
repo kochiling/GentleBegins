@@ -46,6 +46,7 @@
         android:layout_height="40dp"
         android:contentDescription="Logout"
         android:src="@drawable/baseline_logout_24"
+        android:id="@+id/logoutButton"
         tools:ignore="HardcodedText,MissingConstraints"
         tools:layout_editor_absoluteX="330dp"
         tools:layout_editor_absoluteY="25dp" />
@@ -78,6 +79,7 @@
             android:layout_marginStart="70dp"
             android:layout_marginBottom="7dp"
             android:text="@string/userdetails"
+            android:id="@+id/usersdetails"
             android:textColor="#424242"
             app:drawableTopCompat="@drawable/outline_people_24" />
 
@@ -87,14 +89,15 @@
             android:layout_gravity="bottom"
             android:layout_marginStart="240dp"
             android:layout_marginBottom="7dp"
-            android:text="@string/userdetails"
+            android:text="@string/additionaltips"
+            android:id="@+id/additionaltips"
             android:textColor="#424242"
             app:drawableTopCompat="@drawable/baseline_tips_and_updates_24" />
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/ADDadditionaltips"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/white"
