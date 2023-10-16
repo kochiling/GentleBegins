@@ -131,9 +131,15 @@
             android:id="@+id/imageButton3"
             android:layout_width="52dp"
             android:layout_height="61dp"
-            app:srcCompat="@drawable/ic_action_name"
-            tools:layout_editor_absoluteX="326dp"
-            tools:layout_editor_absoluteY="44dp" />
+            android:layout_marginStart="326dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="31dp"
+            android:layout_marginBottom="624dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_action_name" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
