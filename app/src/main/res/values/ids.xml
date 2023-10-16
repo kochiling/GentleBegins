@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="adminfeeding" type="id">Feeding</item>
+    <item name="adminsleeping" type="id">Sleeping</item>
+    <item name="admindiaper" type="id">Diaper</item>
+    <item name="adminmedicine" type="id">Medicine</item>
+</resources>

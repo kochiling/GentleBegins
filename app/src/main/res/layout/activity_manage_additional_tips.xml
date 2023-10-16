@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    android:background="@color/white"
+    tools:context=".ManageAdditionalTips"
+    tools:ignore="ExtraText">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="385dp"
+        android:layout_height="89dp"
+        android:background="@color/Thistle"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        tools:ignore="MissingConstraints,VisualLintBounds"
+        tools:layout_editor_absoluteX="-4dp"
+        tools:layout_editor_absoluteY="15dp"/>
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:contentDescription="Logout"
+        android:src="@drawable/baseline_arrow_back_24"
+        tools:ignore="HardcodedText,MissingConstraints"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="25dp" />
+
+    <ImageView
+        android:layout_width="140dp"
+        android:layout_height="70dp"
+        android:contentDescription="GentleBeginsLogo"
+        android:src="@drawable/gentle_begins_logo"
+        tools:ignore="HardcodedText,MissingConstraints"
+        tools:layout_editor_absoluteX="116dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/admin"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="15dp"
+        tools:layout_editor_absoluteY="83dp"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:contentDescription="Logout"
+        android:src="@drawable/baseline_logout_24"
+        tools:ignore="HardcodedText,MissingConstraints"
+        tools:layout_editor_absoluteX="330dp"
+        tools:layout_editor_absoluteY="25dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/AdditionalTips"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-9dp"
+        tools:layout_editor_absoluteY="133dp" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/Thistle"
+        app:menu="@menu/admin_bottom_nav"
+        tools:ignore="VisualLintBottomNav" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="70dp"
+            android:layout_marginBottom="7dp"
+            android:text="@string/userdetails"
+            android:textColor="#424242"
+            app:drawableTopCompat="@drawable/outline_people_24" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="240dp"
+            android:layout_marginBottom="7dp"
+            android:text="@string/userdetails"
+            android:textColor="#424242"
+            app:drawableTopCompat="@drawable/baseline_tips_and_updates_24" />
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/title"
+        tools:ignore="MissingConstraints,TextContrastCheck,TouchTargetSizeCheck,VisualLintTextFieldSize"
+        tools:layout_editor_absoluteY="192dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/Description"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:hint="@string/description"
+        tools:ignore="MissingConstraints,TextContrastCheck,TouchTargetSizeCheck,VisualLintTextFieldSize"
+        tools:layout_editor_absoluteY="244dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/Link"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/link"
+        tools:ignore="DuplicateIds,MissingConstraints,TextContrastCheck,TouchTargetSizeCheck,VisualLintTextFieldSize"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="377dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/AdditionalTipsPic"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:hint="@string/addTipsPic"
+        tools:ignore="MissingConstraints,TextContrastCheck,TouchTargetSizeCheck,VisualLintTextFieldSize"
+        tools:layout_editor_absoluteX="15dp"
+        tools:layout_editor_absoluteY="430dp" />
+
+    <Button
+        android:id="@+id/btn_saveAddTips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/SaveAddTips"
+        tools:ignore="DuplicateSpeakableTextCheck,MissingConstraints"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="570dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
