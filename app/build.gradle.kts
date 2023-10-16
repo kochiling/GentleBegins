@@ -6,11 +6,12 @@ plugins {
 
 android {
     namespace = "com.cscorner.gentlebegins"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.cscorner.gentlebegins"
         minSdk = 24
+        //noinspection OldTargetApi
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
