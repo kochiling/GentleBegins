@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
-    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
 
     <application
         android:allowBackup="true"
@@ -15,8 +15,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GentleBegins"
         tools:targetApi="33">
+        <activity
+            android:name=".add_image_gallery"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".upload_image"
+            android:exported="false" />
         <activity
             android:name=".Summary_Feed"
             android:exported="false" />
@@ -46,14 +56,10 @@
             android:exported="false" />
         <activity
             android:name=".Record_routines"
-            android:exported="false">
-        </activity>
-
+            android:exported="false" />
         <activity
             android:name=".Register"
             android:exported="false" />
-
-
         <activity
             android:name=".Login"
             android:exported="true">
@@ -63,7 +69,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
