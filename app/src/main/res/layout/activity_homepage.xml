@@ -7,8 +7,8 @@
     tools:context=".homepage">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginStart="1dp"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
@@ -20,8 +20,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0">
 
-<<<<<<< HEAD
-=======
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -35,45 +33,26 @@
             app:layout_constraintVertical_bias="0.007"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
->>>>>>> origin/satish
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="207dp"
             android:layout_height="100dp"
-<<<<<<< HEAD
-            android:layout_marginTop="29dp"
-            android:layout_marginEnd="120dp"
-            android:layout_marginBottom="600dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
-=======
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.162"
->>>>>>> origin/satish
             app:srcCompat="@drawable/gentle_begins_logo" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-<<<<<<< HEAD
-            android:layout_marginTop="44dp"
-            android:text="@string/welcome_back"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.159"
-=======
             android:layout_marginTop="48dp"
             android:text="Welcome back, xxx"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.176"
->>>>>>> origin/satish
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
@@ -81,66 +60,30 @@
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-<<<<<<< HEAD
-            android:layout_marginStart="82dp"
-            android:layout_marginTop="251dp"
-            android:layout_marginEnd="88dp"
-            android:layout_marginBottom="427dp"
-            android:text="@string/record_r"
-=======
             android:text="Record summary"
->>>>>>> origin/satish
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-<<<<<<< HEAD
-            app:layout_constraintTop_toTopOf="parent" />
-=======
             app:layout_constraintTop_toTopOf="@+id/toolbar"
             app:layout_constraintVertical_bias="0.454" />
->>>>>>> origin/satish
 
         <Button
             android:id="@+id/button3"
             android:layout_width="239dp"
             android:layout_height="52dp"
-<<<<<<< HEAD
-            android:layout_marginStart="82dp"
-            android:layout_marginTop="339dp"
-            android:layout_marginEnd="88dp"
-            android:layout_marginBottom="339dp"
-            android:text="@string/summary_b"
-=======
             android:text="summary"
->>>>>>> origin/satish
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-<<<<<<< HEAD
-            app:layout_constraintTop_toTopOf="parent" />
-=======
             app:layout_constraintTop_toTopOf="@+id/toolbar"
             app:layout_constraintVertical_bias="0.595" />
->>>>>>> origin/satish
 
         <Button
             android:id="@+id/button4"
             android:layout_width="262dp"
             android:layout_height="81dp"
-<<<<<<< HEAD
-            android:layout_marginStart="85dp"
-            android:layout_marginTop="426dp"
-            android:layout_marginEnd="85dp"
-            android:layout_marginBottom="252dp"
-            android:text="@string/tips_for_parent"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-=======
             android:text="tips for parent"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -149,34 +92,23 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.77" />
->>>>>>> origin/satish
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/bottomNavigationView"
             android:layout_width="403dp"
             android:layout_height="95dp"
-<<<<<<< HEAD
-            android:background="#9C27B0"
-=======
             android:background="@color/morandi_pink"
->>>>>>> origin/satish
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
             <ImageButton
                 android:id="@+id/imageButton4"
-<<<<<<< HEAD
-                android:layout_width="69dp"
-                android:layout_height="67dp"
-                android:layout_marginTop="16dp"
-=======
                 android:layout_width="100dp"
                 android:layout_height="70dp"
                 android:layout_marginTop="16dp"
                 android:backgroundTint="@color/morandi_pink"
                 android:contentDescription="reminder"
->>>>>>> origin/satish
                 app:layout_constraintEnd_toStartOf="@+id/imageButton6"
                 app:layout_constraintHorizontal_bias="0.505"
                 app:layout_constraintStart_toStartOf="parent"
@@ -185,21 +117,6 @@
 
             <ImageButton
                 android:id="@+id/imageButton5"
-<<<<<<< HEAD
-                android:layout_width="72dp"
-                android:layout_height="65dp"
-                app:srcCompat="@drawable/profile_icon"
-                tools:layout_editor_absoluteX="274dp"
-                tools:layout_editor_absoluteY="18dp" />
-
-            <ImageButton
-                android:id="@+id/imageButton6"
-                android:layout_width="70dp"
-                android:layout_height="64dp"
-                app:srcCompat="@drawable/gallery_icon"
-                tools:layout_editor_absoluteX="166dp"
-                tools:layout_editor_absoluteY="15dp" />
-=======
                 android:layout_width="100dp"
                 android:layout_height="70dp"
                 android:backgroundTint="@color/morandi_pink"
@@ -223,29 +140,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/gallery_icon" />
->>>>>>> origin/satish
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageButton
             android:id="@+id/imageButton3"
             android:layout_width="52dp"
             android:layout_height="61dp"
-<<<<<<< HEAD
-            android:layout_marginStart="326dp"
-            android:layout_marginTop="44dp"
-            android:layout_marginEnd="31dp"
-            android:layout_marginBottom="624dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_action_name" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-=======
             android:backgroundTint="@color/morandi_pink"
-            android:contentDescription="logout"
+            android:contentDescription="@string/logout"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.946"
@@ -255,5 +157,4 @@
             app:srcCompat="@drawable/ic_action_name" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
->>>>>>> origin/satish
 </androidx.constraintlayout.widget.ConstraintLayout>

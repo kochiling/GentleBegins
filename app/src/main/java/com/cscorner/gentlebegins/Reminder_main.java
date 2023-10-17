@@ -3,7 +3,9 @@ package com.cscorner.gentlebegins;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,27 +29,18 @@ import java.util.Objects;
 public class Reminder_main extends AppCompatActivity {
 
     FloatingActionButton add;
-
     RecyclerView recyclerView;
-
     ArrayList<ReminderModel> list;
-
     DatabaseReference databaseReference;
-
     MyAdapter adapter;
 
-
-    @Override
-    public void onBackPressed(){
-        super.onBackPressed();
-        startActivity(new Intent(Reminder_main.this, Reminder_main.this.getClass()));
-        finish();
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.reminder_main);
+
+        add = findViewById(R.id.floatingActionButton);
 
         add.setOnClickListener(view -> {
             Intent intent = new Intent(Reminder_main.this, Add_reminder.class);
@@ -61,10 +55,14 @@ public class Reminder_main extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("Notifications");
+
+        FirebaseAuth dbAuth = FirebaseAuth.getInstance();
+        String user_id = dbAuth.getUid();
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users/" + user_id + "/Notifications");
         list = new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new MyAdapter(this, list);
+
 
         recyclerView.setAdapter(adapter);
 
@@ -72,20 +70,29 @@ public class Reminder_main extends AppCompatActivity {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                list.clear(); // Clear the list before adding new data
+
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     ReminderModel notifications = dataSnapshot.getValue(ReminderModel.class);
                     list.add(notifications);
                 }
-                adapter.notifyDataSetChanged();
+
+                if (list.isEmpty()) {
+                    // The list is empty, show a message to the user
+                    Toast.makeText(Reminder_main.this, "No reminders found", Toast.LENGTH_SHORT).show();
+                } else {
+                    // The list is not empty, update the RecyclerView
+                    adapter.notifyDataSetChanged();
+                }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Log.e("FirebaseError", error.getMessage());
             }
         });
-
     }
+
 
 
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

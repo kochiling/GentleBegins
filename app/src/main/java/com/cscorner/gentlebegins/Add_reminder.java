@@ -91,6 +91,8 @@ public class Add_reminder extends AppCompatActivity {
                 Intent intent = new Intent(Add_reminder.this, Reminder_main.class);
                 startActivity(intent);
 
+
+
             }
         });
     }

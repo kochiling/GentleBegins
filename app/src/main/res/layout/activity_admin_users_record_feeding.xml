@@ -62,7 +62,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/record_r"
+        android:text="@string/recorddetails"
         android:textSize="25sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="16dp"
@@ -74,7 +74,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/DarkViolet"
-        android:text="@string/feed_b"
+        android:text="@string/adminfeeding"
         android:textColor="#CFD8DC"
         tools:ignore="DuplicateSpeakableTextCheck,MissingConstraints"
         tools:layout_editor_absoluteX="13dp"
@@ -85,7 +85,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/morandi_purple"
-        android:text="@string/sleep_b"
+        android:text="@string/adminsleeping"
         tools:ignore="DuplicateSpeakableTextCheck,MissingConstraints"
         tools:layout_editor_absoluteX="104dp"
         tools:layout_editor_absoluteY="195dp" />
@@ -95,7 +95,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/morandi_purple"
-        android:text="@string/diaper_b"
+        android:text="@string/admindiaper"
         tools:ignore="DuplicateSpeakableTextCheck,MissingConstraints"
         tools:layout_editor_absoluteX="195dp"
         tools:layout_editor_absoluteY="195dp" />
@@ -105,8 +105,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/morandi_purple"
-        android:text="@string/medicine_b"
-        tools:ignore="DuplicateSpeakableTextCheck,MissingConstraints,VisualLintBounds"
+        android:text="@string/adminmedicine"
+        tools:ignore="DuplicateSpeakableTextCheck"
         tools:layout_editor_absoluteX="286dp"
         tools:layout_editor_absoluteY="195dp" />
 
