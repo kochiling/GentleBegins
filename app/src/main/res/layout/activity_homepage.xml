@@ -20,28 +20,39 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0">
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/morandi_pink"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.007"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="207dp"
             android:layout_height="100dp"
-            android:layout_marginTop="29dp"
-            android:layout_marginEnd="120dp"
-            android:layout_marginBottom="600dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintVertical_bias="0.162"
             app:srcCompat="@drawable/gentle_begins_logo" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="48dp"
             android:text="Welcome back, xxx"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.159"
+            app:layout_constraintHorizontal_bias="0.176"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
@@ -49,61 +60,55 @@
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="82dp"
-            android:layout_marginTop="251dp"
-            android:layout_marginEnd="88dp"
-            android:layout_marginBottom="427dp"
             android:text="Record summary"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/toolbar"
+            app:layout_constraintVertical_bias="0.454" />
 
         <Button
             android:id="@+id/button3"
             android:layout_width="239dp"
             android:layout_height="52dp"
-            android:layout_marginStart="82dp"
-            android:layout_marginTop="339dp"
-            android:layout_marginEnd="88dp"
-            android:layout_marginBottom="339dp"
             android:text="summary"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/toolbar"
+            app:layout_constraintVertical_bias="0.595" />
 
         <Button
             android:id="@+id/button4"
             android:layout_width="262dp"
             android:layout_height="81dp"
-            android:layout_marginStart="85dp"
-            android:layout_marginTop="426dp"
-            android:layout_marginEnd="85dp"
-            android:layout_marginBottom="252dp"
             android:text="tips for parent"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.77" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/bottomNavigationView"
             android:layout_width="403dp"
             android:layout_height="95dp"
-            android:background="#9C27B0"
+            android:background="@color/morandi_pink"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
             <ImageButton
                 android:id="@+id/imageButton4"
-                android:layout_width="69dp"
-                android:layout_height="67dp"
+                android:layout_width="100dp"
+                android:layout_height="70dp"
                 android:layout_marginTop="16dp"
+                android:backgroundTint="@color/morandi_pink"
+                android:contentDescription="reminder"
                 app:layout_constraintEnd_toStartOf="@+id/imageButton6"
                 app:layout_constraintHorizontal_bias="0.505"
                 app:layout_constraintStart_toStartOf="parent"
@@ -112,33 +117,43 @@
 
             <ImageButton
                 android:id="@+id/imageButton5"
-                android:layout_width="72dp"
-                android:layout_height="65dp"
-                app:srcCompat="@drawable/profile_icon"
-                tools:layout_editor_absoluteX="274dp"
-                tools:layout_editor_absoluteY="18dp" />
+                android:layout_width="100dp"
+                android:layout_height="70dp"
+                android:backgroundTint="@color/morandi_pink"
+                android:contentDescription="baby's profile"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.914"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.64"
+                app:srcCompat="@drawable/profile_icon" />
 
             <ImageButton
                 android:id="@+id/imageButton6"
-                android:layout_width="70dp"
-                android:layout_height="64dp"
-                app:srcCompat="@drawable/gallery_icon"
-                tools:layout_editor_absoluteX="166dp"
-                tools:layout_editor_absoluteY="15dp" />
+                android:layout_width="100dp"
+                android:layout_height="70dp"
+                android:backgroundTint="@color/morandi_pink"
+                android:contentDescription="gallery"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/gallery_icon" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageButton
             android:id="@+id/imageButton3"
             android:layout_width="52dp"
             android:layout_height="61dp"
-            android:layout_marginStart="326dp"
-            android:layout_marginTop="44dp"
-            android:layout_marginEnd="31dp"
-            android:layout_marginBottom="624dp"
+            android:backgroundTint="@color/morandi_pink"
+            android:contentDescription="logout"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.946"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.005"
             app:srcCompat="@drawable/ic_action_name" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
