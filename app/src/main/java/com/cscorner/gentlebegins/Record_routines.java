@@ -43,46 +43,31 @@ public class Record_routines extends AppCompatActivity {
 
 
         // Set an onClickListener for the ImageButton
-        feedButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Record_routines.this, Feeding_choose.class);
-                startActivity(intent);
-            }
+        feedButton.setOnClickListener(view -> {
+            Intent intent = new Intent(Record_routines.this, Feeding_choose.class);
+            startActivity(intent);
         });
 
-        sleepButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Record_routines.this, Sleeping_Record.class);
-                startActivity(intent);
-            }
+        sleepButton.setOnClickListener(view -> {
+            Intent intent = new Intent(Record_routines.this, Sleeping_Record.class);
+            startActivity(intent);
         });
 
 
-        diaperButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Record_routines.this, Diaper_Record.class);
-                startActivity(intent);
-            }
+        diaperButton.setOnClickListener(view -> {
+            Intent intent = new Intent(Record_routines.this, Diaper_Record.class);
+            startActivity(intent);
         });
 
-        medicineButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Record_routines.this, Medicine_Record.class);
-                startActivity(intent);
-            }
+        medicineButton.setOnClickListener(view -> {
+            Intent intent = new Intent(Record_routines.this, Medicine_Record.class);
+            startActivity(intent);
         });
 
         ImageButton alarmIcon = findViewById(R.id.alarmIcon);
-        alarmIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Record_routines.this, Reminder_main.class);
-                startActivity(intent);
-            }
+        alarmIcon.setOnClickListener(v -> {
+            Intent intent = new Intent(Record_routines.this, Reminder_main.class);
+            startActivity(intent);
         });
 
     }

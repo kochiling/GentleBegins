@@ -91,6 +91,12 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="logout">Logout</string>
+    <string name="recorddetails">Record Details</string>
+    <string name="adminfeeding">Feeding</string>
+    <string name="adminsleeping">Sleeping</string>
+    <string name="admindiaper">Diaper</string>
+    <string name="adminmedicine">Medicine</string>
+    <string name="addadditionaltips">Add Additional Tips</string>
 
 </resources>
 
