@@ -96,7 +96,7 @@
         android:layout_marginTop="48dp"
         android:layout_marginEnd="41dp"
         android:background="#a09d9b"
-        android:text="<Back"
+        android:text="< Back"
         android:textColor="#0d0804"
         app:layout_constraintEnd_toStartOf="@+id/imageFilterView"
         app:layout_constraintStart_toStartOf="parent"
