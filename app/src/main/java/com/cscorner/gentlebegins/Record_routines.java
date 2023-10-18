@@ -73,17 +73,7 @@ public class Record_routines extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        ImageButton alarmIcon = findViewById(R.id.alarmIcon);
-        alarmIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Record_routines.this, Reminder1.class);
-                startActivity(intent);
-            }
-        });
-
-    }
+           }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
