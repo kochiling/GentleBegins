@@ -13,5 +13,8 @@ dependencyResolutionManagement {
     }
 }
 
+
 rootProject.name = "GentleBegins"
 include(":app")
+
+
