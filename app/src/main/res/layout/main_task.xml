@@ -41,7 +41,7 @@
         android:contentDescription="@string/upload_image"
         android:src="@android:drawable/ic_menu_add"
         app:tint="@color/white"
-        tools:ignore="ImageContrastCheck" >
+        tools:ignore="ImageContrastCheck">
 
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
 

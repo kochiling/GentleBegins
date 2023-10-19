@@ -62,7 +62,6 @@ public class Main_Task extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
 
-
         String user_id = Objects.requireNonNull(dbAuth.getCurrentUser()).getUid();
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(user_id).child("ToDo");

@@ -13,22 +13,21 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="385dp"
-        android:layout_height="89dp"
+        android:layout_height="90dp"
         android:background="@color/Thistle"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        tools:ignore="MissingConstraints,VisualLintBounds"
-        tools:layout_editor_absoluteX="-4dp"
-        tools:layout_editor_absoluteY="15dp"/>
+        tools:ignore="MissingConstraints,VisualLintBounds"/>
 
     <ImageView
+        android:id="@+id/gentlebeginslogo"
         android:layout_width="140dp"
-        android:layout_height="70dp"
+        android:layout_height="65dp"
         android:contentDescription="GentleBeginsLogo"
         android:src="@drawable/gentle_begins_logo"
-        tools:ignore="HardcodedText,MissingConstraints"
-        tools:layout_editor_absoluteX="116dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="HardcodedText,MissingConstraints"/>
 
     <TextView
         android:id="@+id/textView"
@@ -36,30 +35,39 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/admin"
+        android:textColor="#546E7A"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="15dp"
-        tools:layout_editor_absoluteY="83dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        tools:ignore="MissingConstraints,TextContrastCheck"
+        tools:layout_editor_absoluteX="15dp" />
 
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:contentDescription="Logout"
+        app:layout_constraintEnd_toEndOf="parent"
         android:id="@+id/logoutButton"
         android:src="@drawable/baseline_logout_24"
-        tools:ignore="HardcodedText,MissingConstraints"
-        tools:layout_editor_absoluteX="330dp"
-        tools:layout_editor_absoluteY="25dp" />
+        tools:ignore="HardcodedText,MissingConstraints"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/userdetails"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="137dp"
-        tools:ignore="MissingConstraints" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="520dp"
+        android:orientation="vertical"
+        android:gravity="start|top"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:text="@string/userdetails"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
@@ -87,7 +95,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:layout_marginStart="240dp"
+            android:layout_marginStart="220dp"
             android:layout_marginBottom="7dp"
             android:text="@string/additionaltips"
             android:id="@+id/additionaltips"

@@ -1,14 +1,14 @@
 package com.cscorner.gentlebegins;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class AdminHomePage extends AppCompatActivity {
-    Button adminlogout;
+    ImageView adminlogout;
     TextView usersdetails;
     TextView additionaltips;
 

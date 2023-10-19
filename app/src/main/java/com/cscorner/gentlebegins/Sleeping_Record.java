@@ -120,7 +120,6 @@ public class Sleeping_Record extends AppCompatActivity {
         int month = selectedDateTime.get(Calendar.MONTH);
         int day = selectedDateTime.get(Calendar.DAY_OF_MONTH);
 
-
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
