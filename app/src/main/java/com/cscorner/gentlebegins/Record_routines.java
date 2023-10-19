@@ -22,6 +22,7 @@ public class Record_routines extends AppCompatActivity {
     ImageButton diaperButton;
     ImageButton medicineButton;
     Button summaryButton;
+    ImageButton alarmIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class Record_routines extends AppCompatActivity {
         diaperButton = findViewById(R.id.diaperButton);
         medicineButton = findViewById(R.id.medicineButton);
         summaryButton = findViewById(R.id.summaryButton);
+        alarmIcon = findViewById(R.id.alarmIcon);
 
         Toolbar toolbar = findViewById(R.id.toolbar_record);
         setSupportActionBar(toolbar);
@@ -64,7 +66,7 @@ public class Record_routines extends AppCompatActivity {
             startActivity(intent);
         });
 
-        ImageButton alarmIcon = findViewById(R.id.alarmIcon);
+
         alarmIcon.setOnClickListener(v -> {
             Intent intent = new Intent(Record_routines.this, Reminder_main.class);
             startActivity(intent);
