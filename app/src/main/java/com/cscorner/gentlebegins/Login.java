@@ -56,30 +56,39 @@ public class Login extends AppCompatActivity {
             email = String.valueOf(editTextEmail.getText());
             password = String.valueOf(editTextPassword.getText());
 
-            if (TextUtils.isEmpty(email)){
+            if (TextUtils.isEmpty(email)) {
                 Toast.makeText(Login.this, "Enter email", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            if (TextUtils.isEmpty(password)){
+            if (TextUtils.isEmpty(password)) {
                 Toast.makeText(Login.this, "Enter password", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            mAuth.signInWithEmailAndPassword(email, password).
-                    addOnCompleteListener(task -> {
-                        progressBar.setVisibility(View.GONE);
-                        if (task.isSuccessful()){
-                            Toast.makeText(Login.this, "Login Successful.", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(), Record_routines.class);
-                            startActivity(intent);
-                            finish();
-                        } else {
-                            Toast.makeText(Login.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    });
+            if (email.equals("admin@gmail.com") && password.equals("123456")) {
+                Intent intent = new Intent(getApplicationContext(), AdminHomePage.class);
+                startActivity(intent);
+                finish();
+            } else {
+                mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
+                    progressBar.setVisibility(View.GONE);
+                    if (task.isSuccessful()) {
+                        Toast.makeText(Login.this, "Login Successful.", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getApplicationContext(), Record_routines.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Toast.makeText(Login.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+            }
 
         });
     }
 }
+
+
+
+

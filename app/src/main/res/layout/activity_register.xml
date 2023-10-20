@@ -15,7 +15,7 @@
         android:layout_width="171dp"
         android:layout_height="88dp"
         android:layout_gravity="center"
-        android:contentDescription="TODO"
+        android:contentDescription="gentlebeginslogo"
         app:srcCompat="@drawable/gentle_begins_logo"
         tools:ignore="ContentDescription,HardcodedText" />
 
