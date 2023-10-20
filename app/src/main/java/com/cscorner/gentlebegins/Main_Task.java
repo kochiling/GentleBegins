@@ -1,9 +1,12 @@
 package com.cscorner.gentlebegins;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -13,6 +16,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,6 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import androidx.recyclerview.widget.ItemTouchHelper;
 
 public class Main_Task extends AppCompatActivity {
 
@@ -32,6 +37,8 @@ public class Main_Task extends AppCompatActivity {
     RecyclerView recyclerView;
     List<TaskClass> taskList;
     TaskAdapter adapter;
+    String key = "";
+    ItemTouchHelper.SimpleCallback simpleCallback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +49,7 @@ public class Main_Task extends AppCompatActivity {
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle("ToDo List ");
         // Enable the Up button (back button)
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+
 
         FirebaseAuth dbAuth = FirebaseAuth.getInstance();
 
@@ -71,21 +78,62 @@ public class Main_Task extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 taskList.clear();
-                for (DataSnapshot itemSnapshot: snapshot.getChildren()){
+                for (DataSnapshot itemSnapshot : snapshot.getChildren()) {
                     TaskClass taskClass = itemSnapshot.getValue(TaskClass.class);
                     assert taskClass != null;
                     taskClass.setKey(itemSnapshot.getKey());
                     taskList.add(taskClass);
                 }
+
+                //Swipe
+
+                ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
+                itemTouchHelper.attachToRecyclerView(recyclerView);
+
+                //add
                 adapter.notifyDataSetChanged();
                 dialog.dismiss();
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 dialog.dismiss();
             }
         });
 
+        simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull final RecyclerView.ViewHolder viewHolder, int direction) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(Main_Task.this);
+                builder.setTitle("Delete Task");
+                builder.setMessage("Are You Sure ??");
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        int position = viewHolder.getAdapterPosition();
+                        final DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(user_id).child("ToDo");
+
+                        reference.child(key).removeValue();
+                        Toast.makeText(Main_Task.this, "Deleted", Toast.LENGTH_SHORT).show();
+
+                        taskList.remove(position);
+                        adapter.notifyItemRemoved(position);
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        adapter.notifyItemChanged(viewHolder.getAdapterPosition());
+                    }
+                });
+                builder.show();
+            }
+        };
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,8 +142,14 @@ public class Main_Task extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
     }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {// Handle the Up button click (e.g., navigate back)
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
