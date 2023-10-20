@@ -1,5 +1,9 @@
 buildscript {
+
+
+
     dependencies {
+
         classpath("com.google.gms:google-services:4.4.0")
         classpath("com.android.tools.build:gradle:4.1.2")
     }
@@ -10,4 +14,3 @@ plugins {
     id("com.google.gms.google-services") version "4.3.15" apply false
 
 }
-

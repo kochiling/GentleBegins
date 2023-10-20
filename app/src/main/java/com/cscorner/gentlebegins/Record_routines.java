@@ -66,7 +66,6 @@ public class Record_routines extends AppCompatActivity {
             startActivity(intent);
         });
 
-
         alarmIcon.setOnClickListener(v -> {
             Intent intent = new Intent(Record_routines.this, Main_Task.class);
             startActivity(intent);

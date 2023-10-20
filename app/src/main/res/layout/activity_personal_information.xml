@@ -44,7 +44,18 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/relationship"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/Relationship"
+            android:textColorHint="#546E7A"
+            tools:ignore="TextContrastCheck,VisualLintTextFieldSize,TouchTargetSizeCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/babysname"
             android:layout_width="match_parent"
@@ -57,39 +68,36 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/babysgender"
+        <Spinner
+            android:id="@+id/babygender_spinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/BabysGender"
-            tools:ignore="TextContrastCheck,VisualLintTextFieldSize,TouchTargetSizeCheck" />
+            android:layout_height="50dp"
+            android:spinnerMode="dropdown"
+            android:textSize="35sp"
+            android:text="@string/BabysGender"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-        <com.google.android.material.textfield.TextInputEditText
+        <Button
             android:id="@+id/babysbirthday"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:hint="@string/BabysBirthday"
-            android:textColorHint="#546E7A"
-            tools:ignore="TextContrastCheck,VisualLintTextFieldSize,TouchTargetSizeCheck" />
+            android:layout_gravity="center"
+            android:background="@color/white"
+            android:gravity="fill|left"
+            android:text="@string/BabysBirthday"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            tools:ignore="DuplicateIds,RtlHardcoded,TextContrastCheck,TextSizeCheck,TouchTargetSizeCheck,VisualLintButtonSize,VisualLintTextFieldSize" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/relationship"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/Relationship"
-            android:textColorHint="#546E7A"
-            tools:ignore="TextContrastCheck,VisualLintTextFieldSize,TouchTargetSizeCheck" />
-    </com.google.android.material.textfield.TextInputLayout>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
     <Button
         android:id="@+id/btn_personalinfoDone"
