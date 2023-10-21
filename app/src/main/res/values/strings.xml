@@ -48,6 +48,11 @@
     <string name="homepage">Home Page</string>
     <string name="profile_pic">"Profile "</string>
     <string name="welcome">Welcome Back</string>
+    <string name="add_image">Add Image</string>
+    <string name="baby_gallery">Baby's Gallery</string>
+    <string name="back_button_text">&lt; Back</string>
+    <string name="add_to_gallery">Add to Gallery</string>
+
 
 
     <string-array name="milk_type">

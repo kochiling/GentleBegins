@@ -12,3 +12,4 @@ public class upload_image extends AppCompatActivity {
         setContentView(R.layout.activity_upload_image);
     }
 }
+
