@@ -18,10 +18,18 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import java.text.SimpleDateFormat;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.Calendar;
-import java.util.Locale;
 import java.util.Objects;
+import java.util.HashMap;
+import java.util.Map;
+
+
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 
 public class Sleeping_Record extends AppCompatActivity {
@@ -40,6 +48,7 @@ public class Sleeping_Record extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FirebaseAuth dbAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.sleeping_record);
 
         toolbar1 = findViewById(R.id.toolbar1);
@@ -85,6 +94,18 @@ public class Sleeping_Record extends AppCompatActivity {
                 String duration = editTextSleepDuration.getText().toString();
                 String mode = SleepMode_spinner.getSelectedItem().toString();
 
+                String user_id = Objects.requireNonNull(dbAuth.getCurrentUser()).getUid();
+                DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users")
+                        .child(user_id).child("Sleeping").child("Time Stamp");
+
+                Map<String, Object> newPost = new HashMap<>();
+                newPost.put("Sleep_Mode",mode);
+                newPost.put("Duration", duration);
+                newPost.put("Start",startDateTime);
+                newPost.put("End",endDateTime);
+
+                current_user_db.child(endDateTime).setValue(newPost);
+
                 // For demonstration, show a Toast message with the collected data
                 String message = "Duration: " + duration + " minutes\nMode: " + mode +
                         "\n Start Time: " + startDateTime + "\nEnd Time: " + endDateTime ;
@@ -98,7 +119,6 @@ public class Sleeping_Record extends AppCompatActivity {
         int year = selectedDateTime.get(Calendar.YEAR);
         int month = selectedDateTime.get(Calendar.MONTH);
         int day = selectedDateTime.get(Calendar.DAY_OF_MONTH);
-
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override

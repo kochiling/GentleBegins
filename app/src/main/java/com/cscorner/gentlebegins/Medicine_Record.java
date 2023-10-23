@@ -11,10 +11,18 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class Medicine_Record extends AppCompatActivity {
@@ -32,6 +40,7 @@ public class Medicine_Record extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FirebaseAuth dbAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.medicine_record);
 
         toolbar2 = findViewById(R.id.toolbar2);
@@ -72,6 +81,19 @@ public class Medicine_Record extends AppCompatActivity {
                 String type = medicineType.getText().toString();
                 String amount = medicineAmount.getText().toString();
 
+                String user_id = Objects.requireNonNull(dbAuth.getCurrentUser()).getUid();
+                DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users")
+                        .child(user_id).child("Medicine").child("Time Stamp");
+
+                Map<String, Object> newPost = new HashMap<>();
+                newPost.put("Symptoms",symptoms);
+                newPost.put("Medicine_Type", type);
+                newPost.put("Medicine_Amount",amount);
+                newPost.put("Date",date);
+                newPost.put("Time",time);
+
+                current_user_db.child(date).child(time).setValue(newPost);
+
                 String message = "Symptoms: " + symptoms + "\nType: " + type + "\nAmount: " + amount + "\nDate: " + date + "\nTime: " + time;
                 Toast.makeText(Medicine_Record.this, message, Toast.LENGTH_LONG).show();
             }
@@ -105,8 +127,13 @@ public class Medicine_Record extends AppCompatActivity {
                     @SuppressLint("SetTextI18n")
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        // Format the time as "9:00" if the minute is less than 10
+                        String formattedTime = (minute < 10) ?
+                                hourOfDay + ":0" + minute :
+                                hourOfDay + ":" + minute;
+
                         // Update the time button with the selected time
-                        medicineEditTime.setText(hourOfDay + ":" + minute);
+                        medicineEditTime.setText(formattedTime);
                     }
                 }, hour, minute, false);
 
@@ -138,4 +165,5 @@ public class Medicine_Record extends AppCompatActivity {
         medicineEditTime.setText(hour + ":" + minute);
     }
 }
+
 

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    android:background="@color/white"
+    tools:context=".AdminHomePage"
+    tools:ignore="ExtraText">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="385dp"
+        android:layout_height="90dp"
+        android:background="@color/Thistle"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        tools:ignore="MissingConstraints,VisualLintBounds"/>
+
+    <ImageView
+        android:id="@+id/gentlebeginslogo"
+        android:layout_width="140dp"
+        android:layout_height="65dp"
+        android:contentDescription="GentleBeginsLogo"
+        android:src="@drawable/gentle_begins_logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="HardcodedText,MissingConstraints"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/admin"
+        android:textColor="#546E7A"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        tools:ignore="MissingConstraints,TextContrastCheck"
+        tools:layout_editor_absoluteX="15dp" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:contentDescription="Logout"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/logoutButton"
+        android:src="@drawable/baseline_logout_24"
+        tools:ignore="HardcodedText,MissingConstraints"/>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="520dp"
+        android:orientation="vertical"
+        android:gravity="start|top"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:text="@string/userdetails"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/Thistle"
+        app:menu="@menu/admin_bottom_nav"
+        tools:ignore="VisualLintBottomNav" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="70dp"
+            android:layout_marginBottom="7dp"
+            android:text="@string/userdetails"
+            android:id="@+id/usersdetails"
+            android:textColor="#424242"
+            app:drawableTopCompat="@drawable/baseline_people_24" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="220dp"
+            android:layout_marginBottom="7dp"
+            android:text="@string/additionaltips"
+            android:id="@+id/additionaltips"
+            android:textColor="#424242"
+            app:drawableTopCompat="@drawable/outline_tips_and_updates_24" />
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
