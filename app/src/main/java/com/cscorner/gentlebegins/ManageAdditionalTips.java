@@ -73,7 +73,7 @@ public class ManageAdditionalTips extends AppCompatActivity {
         ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
-                    if (result.getResultCode() == Activity.RESULT_OK) {
+                    if (result.getResultCode() == Activity.RESULT_OK){
                         Intent data = result.getData();
                         assert data != null;
                         uri = data.getData();
@@ -85,27 +85,41 @@ public class ManageAdditionalTips extends AppCompatActivity {
         );
 
         uploadImage.setOnClickListener(view -> {
-            Intent photopicker = new Intent(Intent.ACTION_PICK);
-            photopicker.setType("image/*");
-            activityResultLauncher.launch(photopicker);
+            Intent photoPicker = new Intent(Intent.ACTION_PICK);
+            photoPicker.setType("image/*");
+            activityResultLauncher.launch(photoPicker);
         });
 
         savetips.setOnClickListener(view -> saveData());
     }
 
-    public void saveData(){
+    public void saveData() {
+
         StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Images")
                 .child(Objects.requireNonNull(uri.getLastPathSegment()));
+
         AlertDialog.Builder builder = new AlertDialog.Builder(ManageAdditionalTips.this);
         builder.setCancelable(false);
+        builder.setView(R.layout.manage_additional_tips_progress_layout);
         AlertDialog dialog = builder.create();
         dialog.show();
+
         storageReference.putFile(uri).addOnSuccessListener(taskSnapshot -> {
             Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
-            Uri urlImage = uriTask.getResult();
-            imageURL = urlImage.toString();
-            uploadData();
-            dialog.dismiss();
+            uriTask.addOnCompleteListener(task->{
+                if (task.isSuccessful()){
+                    Uri urlImage = task.getResult();
+                    imageURL = urlImage.toString();
+                    uploadData();
+                    dialog.dismiss();
+
+                    Intent intent = new Intent(ManageAdditionalTips.this, AdminAddTips.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    dialog.dismiss();
+                }
+            });
         }).addOnFailureListener(e -> dialog.dismiss());
     }
 
@@ -115,16 +129,14 @@ public class ManageAdditionalTips extends AppCompatActivity {
         String description = Objects.requireNonNull(editTextDescription.getText()).toString();
 
         AddTips_DataClass dataClass = new AddTips_DataClass(title, url, description, imageURL);
-
         String currentDate = DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
 
-        FirebaseDatabase.getInstance().getReference("Admin").child(currentDate)
+        FirebaseDatabase.getInstance().getReference("Additional Tips").child(currentDate)
                 .setValue(dataClass).addOnCompleteListener(task -> {
-                    if (task.isSuccessful()){
+                    if (task.isSuccessful()) {
                         Toast.makeText(ManageAdditionalTips.this, "Saved", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 }).addOnFailureListener(e -> Toast.makeText(ManageAdditionalTips.this, Objects.requireNonNull(e.getMessage()), Toast.LENGTH_SHORT).show());
-
     }
 }
