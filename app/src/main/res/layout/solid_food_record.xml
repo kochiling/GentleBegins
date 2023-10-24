@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:textSize="25sp"
-        android:background="@color/green"
+        android:background="@color/morandi_pink"
         app:popupTheme="@style/AppTheme.PopupOverlay"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -138,7 +138,7 @@
                 android:layout_height="48dp"
                 android:layout_marginStart="100dp"
                 android:autofillHints=""
-                android:background="@color/green"
+                android:background="@color/morandi_pink"
                 android:text="@string/select_date"
                 android:textSize="18sp"
                 tools:ignore="LabelFor,SpeakableTextPresentCheck,TextSizeCheck" />
@@ -175,7 +175,7 @@
                 android:layout_height="48dp"
                 android:layout_marginStart="100dp"
                 android:autofillHints=""
-                android:background="@color/green"
+                android:background="@color/morandi_pink"
                 android:text="@string/select_time"
                 android:textSize="18sp"
                 tools:ignore="LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck,TextSizeCheck" />
@@ -193,7 +193,7 @@
             android:layout_marginEnd="20dp"
             android:textSize="25sp"
             android:background="@drawable/cylinder_btn"
-            android:backgroundTint="@color/green">
+            android:backgroundTint="@color/morandi_pink">
 
         </Button>
 
