@@ -73,6 +73,14 @@ public class Record_routines extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        summaryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Record_routines.this,SummaryPage.class);
+                startActivity(intent);
+            }
+        });
            }
 
     @Override

@@ -24,7 +24,7 @@ public class homepage extends AppCompatActivity {
                 // Start the ProfilePageActivity
                 Intent profileIntent = new Intent(homepage.this, profile_page.class);
                 startActivity(profileIntent);
-            }
+            }  
         });
 
         // Set an OnClickListener for the button
