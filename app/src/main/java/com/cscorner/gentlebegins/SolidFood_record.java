@@ -16,10 +16,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
@@ -37,7 +41,6 @@ public class SolidFood_record extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FirebaseAuth dbAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.solid_food_record);
 
         Toolbar toolbar3 = findViewById(R.id.toolbar3);
@@ -74,26 +77,7 @@ public class SolidFood_record extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String date = foodEditDate.getText().toString();
-                String time = foodEditTime.getText().toString();
-                String type = foodType.getText().toString();
-                String notes = foodNotes.getText().toString();
-
-                String user_id = Objects.requireNonNull(dbAuth.getCurrentUser()).getUid();
-                DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users")
-                        .child(user_id).child("Feeding").child("Solid Food").child("Time Stamp");
-
-                Map<String, Object> newPost = new HashMap<>();
-                newPost.put("Food_type",type);
-                newPost.put("Food_notes", notes);
-                newPost.put("Date",date);
-                newPost.put("Time",time);
-
-                current_user_db.child(date).child(time).setValue(newPost);
-
-                String message = type + notes + date + time;
-                Toast.makeText(SolidFood_record.this, message, Toast.LENGTH_LONG).show();
-            }
+                saveData();}
         });
 
     }
@@ -163,5 +147,34 @@ public class SolidFood_record extends AppCompatActivity {
         // Update the time button with the current time
         foodEditTime.setText(hour + ":" + minute);
     }
-}
 
+    public void saveData(){
+        String date = foodEditDate.getText().toString();
+        String time = foodEditTime.getText().toString();
+        String type = foodType.getText().toString();
+        String notes = foodNotes.getText().toString();
+
+        FirebaseAuth dbAuth = FirebaseAuth.getInstance();
+
+        SolidFoodClass solidFoodClass= new SolidFoodClass(date,time,notes,type);
+        String currentDate = DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
+
+        String user_id = Objects.requireNonNull(dbAuth.getCurrentUser()).getUid();
+
+        FirebaseDatabase.getInstance().getReference("Users").child(user_id).child("Solid Food Feeding Record").child(currentDate)
+                .setValue(solidFoodClass).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(SolidFood_record.this, "Saved", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(SolidFood_record.this, Objects.requireNonNull(e.getMessage()), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+}

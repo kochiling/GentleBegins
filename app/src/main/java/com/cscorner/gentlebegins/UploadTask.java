@@ -5,6 +5,7 @@ import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
@@ -58,6 +59,8 @@ public class UploadTask extends AppCompatActivity {
                 saveData();
             }
         });
+
+
     }
 
     private void showDateTimePicker(final Button dateTimeButton) {
@@ -93,9 +96,9 @@ public class UploadTask extends AppCompatActivity {
         String title = uploadTitle.getText().toString();
         String desc = uploadDesc.getText().toString();
         String dateTime = dateAndTime.getText().toString();
+
         TaskClass taskClass = new TaskClass(title, desc, dateTime);
         FirebaseAuth dbAuth = FirebaseAuth.getInstance();
-
 
         // We are changing the child from title to currentDate,
         // because we will be updating title as well and it may affect child value.

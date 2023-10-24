@@ -18,10 +18,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Objects;
 import java.util.HashMap;
@@ -48,7 +52,6 @@ public class Sleeping_Record extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FirebaseAuth dbAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.sleeping_record);
 
         toolbar1 = findViewById(R.id.toolbar1);
@@ -88,28 +91,9 @@ public class Sleeping_Record extends AppCompatActivity {
         sleepSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Get the user input and perform data processing here
-                String startDateTime = sleepEditStart.getText().toString();
-                String endDateTime = sleepEditEnd.getText().toString();
-                String duration = editTextSleepDuration.getText().toString();
-                String mode = SleepMode_spinner.getSelectedItem().toString();
 
-                String user_id = Objects.requireNonNull(dbAuth.getCurrentUser()).getUid();
-                DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users")
-                        .child(user_id).child("Sleeping").child("Time Stamp");
+                saveData();
 
-                Map<String, Object> newPost = new HashMap<>();
-                newPost.put("Sleep_Mode",mode);
-                newPost.put("Duration", duration);
-                newPost.put("Start",startDateTime);
-                newPost.put("End",endDateTime);
-
-                current_user_db.child(endDateTime).setValue(newPost);
-
-                // For demonstration, show a Toast message with the collected data
-                String message = "Duration: " + duration + " minutes\nMode: " + mode +
-                        "\n Start Time: " + startDateTime + "\nEnd Time: " + endDateTime ;
-                Toast.makeText(Sleeping_Record.this, message, Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -150,4 +134,35 @@ public class Sleeping_Record extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void saveData(){
+        String startDateTime = sleepEditStart.getText().toString();
+        String endDateTime = sleepEditEnd.getText().toString();
+        String duration = editTextSleepDuration.getText().toString();
+        String mode = SleepMode_spinner.getSelectedItem().toString();
+
+        FirebaseAuth dbAuth = FirebaseAuth.getInstance();
+
+        SleepingClass sleepingClass = new SleepingClass(startDateTime,endDateTime,duration,mode);
+        String currentDate = DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
+
+        String user_id = Objects.requireNonNull(dbAuth.getCurrentUser()).getUid();
+
+        FirebaseDatabase.getInstance().getReference("Users").child(user_id).child("Sleeping Record").child(currentDate)
+                .setValue(sleepingClass).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(Sleeping_Record.this, "Saved", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(Sleeping_Record.this, Objects.requireNonNull(e.getMessage()), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
 }
+

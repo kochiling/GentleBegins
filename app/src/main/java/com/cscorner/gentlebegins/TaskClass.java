@@ -5,6 +5,7 @@ public class TaskClass {
    private String taskTitle;
    private String taskDesc;
    private String taskDT;
+   private boolean isDone;
    private String key;
 
     public String getKey() {
@@ -27,12 +28,21 @@ public class TaskClass {
         return taskDT;
     }
 
+    //**
+    public boolean isDone() {
+        return isDone;
+    }
+
+    public void setDone(boolean done) {
+        isDone = done;
+    }
+
     public TaskClass(String taskTitle, String taskDesc, String taskDT) {
         this.taskTitle = taskTitle;
         this.taskDesc = taskDesc;
         this.taskDT = taskDT;
-    }
 
+    }
     public TaskClass() {
     }
 }

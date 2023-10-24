@@ -101,7 +101,7 @@ public class Main_Task extends AppCompatActivity {
             }
         });
 
-        simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
+        simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
                 return false;
@@ -116,9 +116,11 @@ public class Main_Task extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         int position = viewHolder.getAdapterPosition();
+                        TaskClass taskToDelete = taskList.get(position);
                         final DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(user_id).child("ToDo");
 
-                        reference.child(key).removeValue();
+                        // Use the key associated with the task to delete it
+                        reference.child(taskToDelete.getKey()).removeValue();
                         Toast.makeText(Main_Task.this, "Deleted", Toast.LENGTH_SHORT).show();
 
                         taskList.remove(position);
