@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:padding="15dp"
     android:background="@color/white"
-    tools:context=".ManageAdditionalTips"
+    tools:context=".AdminEditTips"
     tools:ignore="ExtraText">
 
     <androidx.appcompat.widget.Toolbar
@@ -17,14 +17,6 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         tools:ignore="MissingConstraints,VisualLintBounds"/>
-
-    <ImageView
-        android:id="@+id/backTOadminsdditionalpage"
-        android:layout_width="43dp"
-        android:layout_height="38dp"
-        android:src="@drawable/baseline_arrow_back_24"
-        tools:ignore="MissingConstraints"
-        android:contentDescription="@string/back_to_add_tips_page" />
 
     <ImageView
         android:id="@+id/gentlebeginslogo"
@@ -75,7 +67,7 @@
             tools:ignore="MissingConstraints" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Title"
+            android:id="@+id/editTitle"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:hint="@string/title"
@@ -85,45 +77,45 @@
             tools:ignore="MissingConstraints,TextContrastCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Link"
+            android:id="@+id/editLink"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:hint="@string/link"
-            app:layout_constraintTop_toBottomOf="@+id/Title"
+            app:layout_constraintTop_toBottomOf="@+id/editTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:ignore="DuplicateIds,MissingConstraints,TextContrastCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Description"
+            android:id="@+id/editDescription"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:hint="@string/description"
-            app:layout_constraintTop_toBottomOf="@+id/Link"
+            app:layout_constraintTop_toBottomOf="@+id/editLink"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:ignore="MissingConstraints,TextContrastCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
         <ImageView
-            android:id="@+id/UploadTipsPic"
+            android:id="@+id/editImage"
             android:layout_width="200dp"
             android:layout_height="170dp"
             android:contentDescription="@string/uploadtipspic"
             android:src="@drawable/click_here_to_upload"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Description"
+            app:layout_constraintTop_toBottomOf="@+id/editDescription"
             tools:ignore="MissingConstraints,ImageContrastCheck" />
 
         <Button
-            android:id="@+id/btn_saveAddTips"
-            android:layout_width="360dp"
+            android:id="@+id/btn_updateAddTips"
+            android:layout_width="427dp"
             android:layout_height="wrap_content"
-            android:text="@string/SaveAddTips"
-            app:layout_constraintTop_toBottomOf="@+id/UploadTipsPic"
+            android:text="@string/EditAddTips"
+            app:layout_constraintTop_toBottomOf="@+id/editImage"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            tools:ignore="DuplicateSpeakableTextCheck,MissingConstraints,VisualLintButtonSize" />
+            tools:ignore="DuplicateSpeakableTextCheck,MissingConstraints" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

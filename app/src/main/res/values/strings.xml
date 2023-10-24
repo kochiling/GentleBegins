@@ -118,6 +118,10 @@
     <string name="done_task">Done Task</string>
     <string name="uploadtipspic">UploadTipsPic</string>
     <string name="back_to_add_tips_page">Back to Add Tips page</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="EditAddTips">Update</string>
+    <string name="update">Update</string>
 </resources>
 
 
