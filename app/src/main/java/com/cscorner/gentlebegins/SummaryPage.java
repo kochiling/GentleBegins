@@ -1,62 +1,62 @@
 package com.cscorner.gentlebegins;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.os.Bundle;
-import com.jjoe64.graphview.GraphView;
-import com.jjoe64.graphview.series.DataPoint;
-import com.jjoe64.graphview.series.LineGraphSeries;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class SummaryPage extends AppCompatActivity {
-    private GraphView graphView;
-    private LineGraphSeries<DataPoint> series;
+
+    RecyclerView recyclerView;
+    DatabaseReference database;
+    MyAdapter myAdapter;
+    ArrayList<User> list;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary_page);
 
-        graphView = findViewById(R.id.graph);
-        series = new LineGraphSeries<>();
+        recyclerView = findViewById(R.id.feedingsum);
+        database = FirebaseDatabase.getInstance().getReference("Users");
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Initialize Firebase
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference dataRef = database.getReference("https://gentlebegins-default-rtdb.firebaseio.com/"); // Replace with your Firebase data path
+        list = new ArrayList<>();
+        myAdapter = new MyAdapter(this, list);
+        recyclerView.setAdapter(myAdapter);
 
-        // Read and continuously update data from Firebase
-        dataRef.addValueEventListener(new ValueEventListener() {
+        database.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // Handle updated data
-                series.resetData(getDataPointsFromSnapshot(dataSnapshot));
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+
+                    User user;
+                    user = dataSnapshot.getValue(User.class);
+
+                    list.add(user);
+
+
+                }
+                myAdapter.notifyDataSetChanged();
+
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // Handle errors (e.g., network issues)
-                // You can log or show an error message here
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
-
-        graphView.addSeries(series);
-    }
-
-    private DataPoint[] getDataPointsFromSnapshot(DataSnapshot dataSnapshot) {
-        int dataCount = (int) dataSnapshot.getChildrenCount();
-        DataPoint[] dataPoints = new DataPoint[dataCount];
-
-        int i = 0;
-        for (DataSnapshot child : dataSnapshot.getChildren()) {
-            // Assuming your data structure has "x" and "y" fields, adjust these accordingly
-            double x = Double.parseDouble(child.child("x").getValue().toString());
-            double y = Double.parseDouble(child.child("y").getValue().toString());
-            dataPoints[i] = new DataPoint(x, y);
-            i++;
-        }
-
-        return dataPoints;
     }
 }
+
