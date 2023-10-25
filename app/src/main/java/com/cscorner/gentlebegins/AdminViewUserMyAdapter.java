@@ -38,7 +38,7 @@ public class AdminViewUserMyAdapter extends RecyclerView.Adapter<AdminViewUserMy
         holder.recBabyGender.setText(dataList.get(position).getDataBabygender());
         holder.recBabyBirthday.setText(dataList.get(position).getDataBabybirthday());
 
-        // Remove the intent code to prevent navigation
+
     }
 
     @Override
