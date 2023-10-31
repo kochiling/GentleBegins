@@ -72,7 +72,7 @@ public class Record_routines extends AppCompatActivity {
         });
 
         summaryButton.setOnClickListener(v -> {
-            Intent intent = new Intent(Record_routines.this, SummaryMedicine.class);
+            Intent intent = new Intent(Record_routines.this, Summary_Main.class);
             startActivity(intent);
         });
 

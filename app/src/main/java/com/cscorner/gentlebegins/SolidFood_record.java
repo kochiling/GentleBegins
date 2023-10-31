@@ -156,7 +156,7 @@ public class SolidFood_record extends AppCompatActivity {
 
         FirebaseAuth dbAuth = FirebaseAuth.getInstance();
 
-        SolidFoodClass solidFoodClass= new SolidFoodClass(date,time,notes,type);
+        SolidFoodClass solidFoodClass= new SolidFoodClass(type,notes,date,time);
         String currentDate = DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
 
         String user_id = Objects.requireNonNull(dbAuth.getCurrentUser()).getUid();

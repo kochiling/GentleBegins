@@ -1,14 +1,14 @@
 package com.cscorner.gentlebegins;
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.annotation.SuppressLint;
+import android.os.Bundle;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -21,52 +21,52 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class SummaryMedicine extends AppCompatActivity {
+public class SummarySleep extends AppCompatActivity {
 
     DatabaseReference databaseReference;
     ValueEventListener eventListener;
     RecyclerView recyclerView;
-    List<MedicineClass> medicineList;
-    MedicineAdapter adapter;
+    List<SleepingClass> sleepList;
+    SleepAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.summary_medicine);
+        setContentView(R.layout.summary_sleep);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Medicine History ");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Sleeping History ");
 
         FirebaseAuth dbAuth = FirebaseAuth.getInstance();
 
         recyclerView = findViewById(R.id.recyclerView);
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(SummaryMedicine.this, 1);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(SummarySleep.this, 1);
         recyclerView.setLayoutManager(gridLayoutManager);
-        AlertDialog.Builder builder = new AlertDialog.Builder(SummaryMedicine.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(SummarySleep.this);
         builder.setCancelable(false);
         builder.setView(R.layout.progress_layout);
         AlertDialog dialog = builder.create();
         dialog.show();
-        medicineList = new ArrayList<>();
-        adapter = new MedicineAdapter(SummaryMedicine.this, medicineList);
+        sleepList = new ArrayList<>();
+        adapter = new SleepAdapter(SummarySleep.this, sleepList);
         recyclerView.setAdapter(adapter);
 
         String user_id = Objects.requireNonNull(dbAuth.getCurrentUser()).getUid();
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(user_id).child("Medicine Record");
+        databaseReference =  FirebaseDatabase.getInstance().getReference("Users").child(user_id).child("Sleeping Record");
         dialog.show();
         eventListener = databaseReference.addValueEventListener(new ValueEventListener() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                medicineList.clear();
+                sleepList.clear();
                 for (DataSnapshot itemSnapshot : snapshot.getChildren()) {
-                    MedicineClass medicineClass = itemSnapshot.getValue(MedicineClass.class);
-                    assert medicineClass != null;
-                    medicineClass.setKey(itemSnapshot.getKey());
-                    medicineList.add(medicineClass);
+                    SleepingClass sleepClass = itemSnapshot.getValue(SleepingClass.class);
+                    assert sleepClass != null;
+                    sleepClass.setKey(itemSnapshot.getKey());
+                    sleepList.add(sleepClass);
                 }
 
                 //add
@@ -79,6 +79,7 @@ public class SummaryMedicine extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
+
 
 
     }
