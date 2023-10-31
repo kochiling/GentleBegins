@@ -24,9 +24,10 @@
             android:layout_height="28dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="17dp"
-            android:text="Name"
+            android:text="@string/ParentsName"
             android:textSize="17sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:ignore="TextSizeCheck" />
 
         <TextView
             android:id="@+id/onlyBabynameText"
@@ -34,8 +35,9 @@
             android:layout_height="25dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="80dp"
-            android:text="Baby's name: "
-            android:textSize="15sp" />
+            android:text="@string/baby_s_name"
+            android:textSize="15sp"
+            tools:ignore="TextSizeCheck" />
 
         <TextView
             android:id="@+id/onlyBabygenderText"
@@ -43,8 +45,9 @@
             android:layout_height="25dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="110dp"
-            android:text="Baby's gender: "
-            android:textSize="15sp" />
+            android:text="@string/baby_s_gender"
+            android:textSize="15sp"
+            tools:ignore="TextSizeCheck" />
 
         <TextView
             android:id="@+id/onlyBabybirthdayText"
@@ -52,8 +55,9 @@
             android:layout_height="25dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="140dp"
-            android:text="Baby's birthday: "
-            android:textSize="15sp" />
+            android:text="@string/baby_s_birthday"
+            android:textSize="15sp"
+            tools:ignore="TextSizeCheck" />
 
         <TextView
             android:id="@+id/viewUserBabyname"
@@ -62,8 +66,9 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="80dp"
             android:layout_toEndOf="@+id/onlyBabynameText"
-            android:text="Baby's name"
-            android:textSize="15sp" />
+            android:text="@string/baby_s_name"
+            android:textSize="15sp"
+            tools:ignore="TextSizeCheck" />
 
         <TextView
             android:id="@+id/viewUserRelationship"
@@ -72,8 +77,9 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="50dp"
             android:layout_toEndOf="@+id/onlyRelationshipText"
-            android:text="Relationship"
-            android:textSize="15sp" />
+            android:text="@string/relationship"
+            android:textSize="15sp"
+            tools:ignore="TextSizeCheck" />
 
         <TextView
             android:id="@+id/viewUserBabygender"
@@ -82,8 +88,9 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="110dp"
             android:layout_toEndOf="@+id/onlyBabygenderText"
-            android:text="Baby's gender"
-            android:textSize="15sp" />
+            android:text="@string/baby_s_gender"
+            android:textSize="15sp"
+            tools:ignore="TextSizeCheck" />
 
         <TextView
             android:id="@+id/viewUserBabybirthday"
@@ -92,8 +99,9 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="140dp"
             android:layout_toEndOf="@+id/onlyBabybirthdayText"
-            android:text="Baby's birthday"
-            android:textSize="15sp" />
+            android:text="@string/baby_s_birthday"
+            android:textSize="15sp"
+            tools:ignore="TextSizeCheck" />
 
         <TextView
             android:id="@+id/onlyRelationshipText"
@@ -101,8 +109,9 @@
             android:layout_height="25dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="50dp"
-            android:text="Relationship: "
-            android:textSize="15sp" />
+            android:text="@string/relationship"
+            android:textSize="15sp"
+            tools:ignore="TextSizeCheck" />
 
 
     </RelativeLayout>

@@ -123,7 +123,7 @@ public class ManageAdditionalTips extends AppCompatActivity {
         }).addOnFailureListener(e -> dialog.dismiss());
     }
 
-    public void uploadData() {
+   public void uploadData() {
         String title = Objects.requireNonNull(editTextTitle.getText()).toString();
         String url = Objects.requireNonNull(editTextURL.getText()).toString();
         String description = Objects.requireNonNull(editTextDescription.getText()).toString();

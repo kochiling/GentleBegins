@@ -11,7 +11,6 @@
         android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
 
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -22,6 +21,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GentleBegins"
         tools:targetApi="33">
+        <activity
+            android:name=".SummaryDiaper"
+            android:exported="false" />
+        <activity
+            android:name=".SummaryFood"
+            android:exported="false" />
+        <activity
+            android:name=".SummarySleep"
+            android:exported="false" />
+        <activity
+            android:name=".Summary_Milk"
+            android:exported="false" />
+        <activity
+            android:name=".Summary_Main"
+            android:exported="false" />
         <activity
             android:name=".AdminEditTips"
             android:exported="false" />
@@ -36,15 +50,6 @@
             android:exported="false" />
         <activity
             android:name=".Main_Task"
-            android:exported="false" />
-        <activity
-            android:name=".homepage"
-            android:exported="false" />
-        <activity
-            android:name=".UploadActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".SolidFood_record"
@@ -78,11 +83,10 @@
             android:exported="false" />
         <activity
             android:name=".AdminAddTips"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".ManageAdditionalTips"
-            android:exported="false"/>
-
+            android:exported="false" />
         <activity
             android:name=".Login"
             android:exported="true">

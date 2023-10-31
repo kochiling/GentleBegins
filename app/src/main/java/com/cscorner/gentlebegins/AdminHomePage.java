@@ -1,5 +1,6 @@
 package com.cscorner.gentlebegins;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -34,6 +35,7 @@ public class AdminHomePage extends AppCompatActivity {
 
     DatabaseReference databaseReference;
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +64,7 @@ public class AdminHomePage extends AppCompatActivity {
 
         dialog.show();
         ViewUsereventListener = databaseReference.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 viewUserdataList.clear();

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -15,37 +16,37 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
         <TextView
-            android:id="@+id/recSymptom"
+            android:id="@+id/recMilkType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:text="@string/symptoms"
+            android:text="@string/milktype"
             android:textColor="#1976D2"
             android:textSize="14sp" />
 
 
         <TextView
-            android:id="@+id/recMedicine"
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/recSymptom"
-            android:layout_marginStart="20dp"
-            android:maxLines="1"
-            android:text="@string/desc"
-            android:textColor="#5C6BC0"
-            android:textSize="14sp" />
-
-        <TextView
             android:id="@+id/recAmount"
-            android:layout_width="140dp"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/recMedicine"
+            android:layout_below="@id/recMilkType"
             android:layout_marginStart="20dp"
             android:maxLines="1"
             android:text="@string/milkamount"
+            android:textColor="#5C6BC0"
+            android:textSize="14sp"
+            tools:ignore="TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/recUnit"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/recMilkType"
+            android:layout_marginStart="80dp"
+            android:maxLines="1"
+            android:text="@string/unit"
             android:textColor="#5C6BC0"
             android:textSize="14sp" />
 
@@ -72,8 +73,13 @@
             android:textColor="#5C6BC0"
             android:textSize="14sp" />
 
+
+
     </RelativeLayout>
 
 
 </androidx.cardview.widget.CardView>
+
+
+
 

@@ -225,6 +225,8 @@
             android:layout_height="50dp"
             android:text="@string/summary_b"
             android:textSize="20sp"
+            android:background="@drawable/cylinder_btn"
+            android:backgroundTint="@color/morandi_purple"
             tools:ignore="VisualLintButtonSize" />
 
         <Button

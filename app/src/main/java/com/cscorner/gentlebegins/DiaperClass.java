@@ -2,10 +2,10 @@ package com.cscorner.gentlebegins;
 
 public class DiaperClass {
 
-    private String DiaperStatus;
-    private String DiaperNotes;
-    private String DiaperDate;
-    private String DiaperTime;
+    private String diaperStatus;
+    private String diaperNotes;
+    private String diaperDate;
+    private String diaperTime;
 
     private String key;
 
@@ -18,26 +18,26 @@ public class DiaperClass {
     }
 
     public String getDiaperStatus() {
-        return DiaperStatus;
+        return diaperStatus;
     }
 
     public String getDiaperNotes() {
-        return DiaperNotes;
+        return diaperNotes;
     }
 
     public String getDiaperDate() {
-        return DiaperDate;
+        return diaperDate;
     }
 
     public String getDiaperTime() {
-        return DiaperTime;
+        return diaperTime;
     }
 
     public DiaperClass(String diaperStatus, String diaperNotes, String diaperDate, String diaperTime) {
-        DiaperStatus = diaperStatus;
-        DiaperNotes = diaperNotes;
-        DiaperDate = diaperDate;
-        DiaperTime = diaperTime;
+        this.diaperStatus = diaperStatus;
+        this.diaperNotes = diaperNotes;
+        this.diaperDate = diaperDate;
+        this.diaperTime = diaperTime;
     }
 
     public DiaperClass() {

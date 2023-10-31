@@ -154,7 +154,7 @@ public class Medicine_Record extends AppCompatActivity {
 
         FirebaseAuth dbAuth = FirebaseAuth.getInstance();
 
-        MedicineClass medicineClass = new MedicineClass(date,time,symptoms,type,amount);
+        MedicineClass medicineClass = new MedicineClass(symptoms,type,amount,date,time);
         String currentDate = DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
 
         String user_id = Objects.requireNonNull(dbAuth.getCurrentUser()).getUid();

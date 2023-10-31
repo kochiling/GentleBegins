@@ -163,15 +163,16 @@ public class MilkFeeding_record extends AppCompatActivity {
     }
 
     public void saveData(){
-        String date = milkEditDate.getText().toString();
-        String time = milkEditTime.getText().toString();
         String type = MilkType_spinner.getSelectedItem().toString();
         String unit = MilkAmount_spinner.getSelectedItem().toString();
         String amount = milk_Amount.getText().toString();
+        String date = milkEditDate.getText().toString();
+        String time = milkEditTime.getText().toString();
 
         FirebaseAuth dbAuth = FirebaseAuth.getInstance();
 
-        MilkFeedingClass milkFeedingClass= new MilkFeedingClass(date,time,unit,type,amount);
+
+        MilkFeedingClass milkFeedingClass= new MilkFeedingClass(type,amount,unit,date,time);
         String currentDate = DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
 
         String user_id = Objects.requireNonNull(dbAuth.getCurrentUser()).getUid();
