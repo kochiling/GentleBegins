@@ -18,8 +18,19 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.text.DateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
+
 public class MilkFeeding_record extends AppCompatActivity {
 
     Button milkEditDate;
@@ -79,17 +90,8 @@ public class MilkFeeding_record extends AppCompatActivity {
         milkSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String date = milkEditDate.getText().toString();
-                String time = milkEditTime.getText().toString();
-                String type = MilkType_spinner.getSelectedItem().toString();
-                String unit = MilkAmount_spinner.getSelectedItem().toString();
-                String amount = milk_Amount.getText().toString();
+                saveData();}
 
-                String message = type + amount + unit + date + time;
-                Toast.makeText(MilkFeeding_record.this, message, Toast.LENGTH_LONG).show();
-
-
-            }
         });
     }
 
@@ -121,8 +123,13 @@ public class MilkFeeding_record extends AppCompatActivity {
                     @SuppressLint("SetTextI18n")
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        // Format the time as "9:00" if the minute is less than 10
+                        String formattedTime = (minute < 10) ?
+                                hourOfDay + ":0" + minute :
+                                hourOfDay + ":" + minute;
+
                         // Update the time button with the selected time
-                        milkEditTime.setText(hourOfDay + ":" + minute);
+                        milkEditTime.setText(formattedTime);
                     }
                 }, hour, minute, false);
 
@@ -154,7 +161,35 @@ public class MilkFeeding_record extends AppCompatActivity {
         // Update the time button with the current time
         milkEditTime.setText(hour + ":" + minute);
     }
+
+    public void saveData(){
+        String date = milkEditDate.getText().toString();
+        String time = milkEditTime.getText().toString();
+        String type = MilkType_spinner.getSelectedItem().toString();
+        String unit = MilkAmount_spinner.getSelectedItem().toString();
+        String amount = milk_Amount.getText().toString();
+
+        FirebaseAuth dbAuth = FirebaseAuth.getInstance();
+
+        MilkFeedingClass milkFeedingClass= new MilkFeedingClass(date,time,unit,type,amount);
+        String currentDate = DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
+
+        String user_id = Objects.requireNonNull(dbAuth.getCurrentUser()).getUid();
+
+        FirebaseDatabase.getInstance().getReference("Users").child(user_id).child("Milk Feeding Record").child(currentDate)
+                .setValue(milkFeedingClass).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(MilkFeeding_record.this, "Saved", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(MilkFeeding_record.this, Objects.requireNonNull(e.getMessage()), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
 }
-
-
-

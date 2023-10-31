@@ -27,7 +27,7 @@ public class Register extends AppCompatActivity {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-            Intent intent = new Intent(getApplicationContext(), com.cscorner.gentlebegins.Record_routines.class);
+            Intent intent = new Intent(getApplicationContext(), com.cscorner.gentlebegins.PersonalInformation.class);
             startActivity(intent);
             finish();
         }
@@ -66,22 +66,29 @@ public class Register extends AppCompatActivity {
                 return;
             }
 
-            mAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(task -> {
-                        progressBar.setVisibility(View.GONE);
-                        if (task.isSuccessful()){
-                            Toast.makeText(Register.this, "Account Created",
-                                    Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(), Login.class);
-                            startActivity(intent);
-                            finish();
-
-                        } else {
-                            Toast.makeText(Register.this, "Authentication Failed",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-
-                    });
+            if (email.equals("admin@gmail.com") && password.equals("123456")) {
+                // Redirect to the AdminHomePage class
+                Intent intent = new Intent(getApplicationContext(), AdminHomePage.class);
+                startActivity(intent);
+                finish();
+            } else {
+                // For non-admin users, attempt to create an account
+                mAuth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(task -> {
+                            progressBar.setVisibility(View.GONE);
+                            if (task.isSuccessful()) {
+                                Toast.makeText(Register.this, "Account Created",
+                                        Toast.LENGTH_SHORT).show();
+                                // Redirect to the PersonalInformation class
+                                Intent intent = new Intent(getApplicationContext(), PersonalInformation.class);
+                                startActivity(intent);
+                                finish();
+                            } else {
+                                Toast.makeText(Register.this, "Authentication Failed",
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        });
+            }
         });
     }
 }

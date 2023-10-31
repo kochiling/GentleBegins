@@ -16,7 +16,17 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.text.DateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class SolidFood_record extends AppCompatActivity {
@@ -67,14 +77,7 @@ public class SolidFood_record extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String date = foodEditDate.getText().toString();
-                String time = foodEditTime.getText().toString();
-                String type = foodType.getText().toString();
-                String notes = foodNotes.getText().toString();
-
-                String message = type + notes + date + time;
-                Toast.makeText(SolidFood_record.this, message, Toast.LENGTH_LONG).show();
-            }
+                saveData();}
         });
 
     }
@@ -106,8 +109,13 @@ public class SolidFood_record extends AppCompatActivity {
                     @SuppressLint("SetTextI18n")
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        // Format the time as "9:00" if the minute is less than 10
+                        String formattedTime = (minute < 10) ?
+                                hourOfDay + ":0" + minute :
+                                hourOfDay + ":" + minute;
+
                         // Update the time button with the selected time
-                        foodEditTime.setText(hourOfDay + ":" + minute);
+                        foodEditTime.setText(formattedTime);
                     }
                 }, hour, minute, false);
 
@@ -138,5 +146,35 @@ public class SolidFood_record extends AppCompatActivity {
 
         // Update the time button with the current time
         foodEditTime.setText(hour + ":" + minute);
+    }
+
+    public void saveData(){
+        String date = foodEditDate.getText().toString();
+        String time = foodEditTime.getText().toString();
+        String type = foodType.getText().toString();
+        String notes = foodNotes.getText().toString();
+
+        FirebaseAuth dbAuth = FirebaseAuth.getInstance();
+
+        SolidFoodClass solidFoodClass= new SolidFoodClass(date,time,notes,type);
+        String currentDate = DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
+
+        String user_id = Objects.requireNonNull(dbAuth.getCurrentUser()).getUid();
+
+        FirebaseDatabase.getInstance().getReference("Users").child(user_id).child("Solid Food Feeding Record").child(currentDate)
+                .setValue(solidFoodClass).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(SolidFood_record.this, "Saved", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(SolidFood_record.this, Objects.requireNonNull(e.getMessage()), Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }
