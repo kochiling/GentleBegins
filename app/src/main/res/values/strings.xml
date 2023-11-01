@@ -128,6 +128,9 @@
     <string name="baby_s_gender">Baby\'s gender:</string>
     <string name="unit">Unit:</string>
     <string name="minutes">minutes</string>
+    <string name="profile">Profile page</string>
+    <string name="addgallery">Add Gallery</string>
+    <string name="backtohomepage">backTOhomepage</string>
 </resources>
 
 
