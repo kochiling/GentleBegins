@@ -10,6 +10,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.SearchView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -30,6 +31,7 @@ public class SummaryFood extends AppCompatActivity {
     RecyclerView recyclerView;
     List<SolidFoodClass> solidfoodList;
     SolidFoodAdapter adapter;
+    SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,7 @@ public class SummaryFood extends AppCompatActivity {
         FirebaseAuth dbAuth = FirebaseAuth.getInstance();
 
         recyclerView = findViewById(R.id.recyclerView);
+        searchView = findViewById(R.id.search);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(SummaryFood.this, 1);
         recyclerView.setLayoutManager(gridLayoutManager);
@@ -82,6 +85,32 @@ public class SummaryFood extends AppCompatActivity {
             }
         });
 
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                searchList(newText);
+                return true;
+            }
+        });
+
 
     }
+
+    public void searchList(String text) {
+        ArrayList<SolidFoodClass> searchList = new ArrayList<>();
+        for (SolidFoodClass foodClass : solidfoodList) {
+            if (foodClass.getFoodType().toLowerCase().contains(text.toLowerCase()) ||
+                    foodClass.getFoodNotes().toLowerCase().contains(text.toLowerCase()) ||
+                    foodClass.getFoodDate().toLowerCase().contains(text.toLowerCase()) ||
+                    foodClass.getFoodTime().toLowerCase().contains(text.toLowerCase())) {
+                searchList.add(foodClass);
+            }
+        }
+        adapter.searchDataList(searchList);
+    }
 }
+

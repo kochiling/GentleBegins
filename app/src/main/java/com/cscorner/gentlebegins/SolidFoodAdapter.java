@@ -1,5 +1,6 @@
 package com.cscorner.gentlebegins;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 public class SolidFoodAdapter extends RecyclerView.Adapter<FViewHolder> {
 
@@ -41,6 +43,13 @@ public class SolidFoodAdapter extends RecyclerView.Adapter<FViewHolder> {
     public int getItemCount() {
         return solidFoodList.size();
     }
+
+    @SuppressLint("NotifyDataSetChanged")
+    public void searchDataList(ArrayList<SolidFoodClass> searchList){
+        solidFoodList = searchList;
+        notifyDataSetChanged();
+    }
+
 }
 class FViewHolder extends RecyclerView.ViewHolder{
     TextView recFoodType, recNotes, recDate, recTime;

@@ -20,6 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import androidx.appcompat.widget.SearchView;
 
 public class SummarySleep extends AppCompatActivity {
 
@@ -28,6 +29,7 @@ public class SummarySleep extends AppCompatActivity {
     RecyclerView recyclerView;
     List<SleepingClass> sleepList;
     SleepAdapter adapter;
+    SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,7 @@ public class SummarySleep extends AppCompatActivity {
         FirebaseAuth dbAuth = FirebaseAuth.getInstance();
 
         recyclerView = findViewById(R.id.recyclerView);
+        searchView = findViewById(R.id.search);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(SummarySleep.this, 1);
         recyclerView.setLayoutManager(gridLayoutManager);
@@ -80,7 +83,30 @@ public class SummarySleep extends AppCompatActivity {
             }
         });
 
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                searchList(newText);
+                return true;
+            }
+        });
 
+    }
 
+    public void searchList(String text) {
+        ArrayList<SleepingClass> searchList = new ArrayList<>();
+        for (SleepingClass sleepClass : sleepList) {
+            if (sleepClass.getSleepMode().toLowerCase().contains(text.toLowerCase()) ||
+                    sleepClass.getDuration().toLowerCase().contains(text.toLowerCase()) ||
+                    sleepClass.getTimeStart().toLowerCase().contains(text.toLowerCase()) ||
+                    sleepClass.getTimeEnd().toLowerCase().contains(text.toLowerCase())) {
+                searchList.add(sleepClass);
+            }
+        }
+        adapter.searchDataList(searchList);
     }
 }
