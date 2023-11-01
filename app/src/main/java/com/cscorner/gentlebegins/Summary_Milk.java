@@ -20,6 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import androidx.appcompat.widget.SearchView;
 
 
 public class Summary_Milk extends AppCompatActivity {
@@ -29,6 +30,7 @@ public class Summary_Milk extends AppCompatActivity {
     RecyclerView recyclerView;
     List<MilkFeedingClass> milkList;
     MilkFeedingAdapter adapter;
+    SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,7 @@ public class Summary_Milk extends AppCompatActivity {
         FirebaseAuth dbAuth = FirebaseAuth.getInstance();
 
         recyclerView = findViewById(R.id.recyclerView);
+        searchView = findViewById(R.id.search);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(Summary_Milk.this, 1);
         recyclerView.setLayoutManager(gridLayoutManager);
@@ -81,6 +84,33 @@ public class Summary_Milk extends AppCompatActivity {
             }
         });
 
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                searchList(newText);
+                return true;
+            }
+        });
+
 
     }
+
+    public void searchList(String text) {
+        ArrayList<MilkFeedingClass> searchList = new ArrayList<>();
+        for (MilkFeedingClass milkClass : milkList) {
+            if (milkClass.getMilkType().toLowerCase().contains(text.toLowerCase()) ||
+                    milkClass.getMilkAmount().toLowerCase().contains(text.toLowerCase()) ||
+                    milkClass.getMilkUnit().toLowerCase().contains(text.toLowerCase()) ||
+                    milkClass.getMilkDate().toLowerCase().contains(text.toLowerCase()) ||
+                    milkClass.getMilkTime().toLowerCase().contains(text.toLowerCase())) {
+                searchList.add(milkClass);
+            }
+        }
+        adapter.searchDataList(searchList);
+    }
+
 }

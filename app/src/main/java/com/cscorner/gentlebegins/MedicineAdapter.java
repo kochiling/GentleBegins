@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 public class MedicineAdapter extends RecyclerView.Adapter<MedViewHolder> {
 
@@ -42,6 +43,12 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedViewHolder> {
     @Override
     public int getItemCount() {
         return medicineList.size();
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    public void searchDataList(ArrayList<MedicineClass> searchList){
+        medicineList = searchList;
+        notifyDataSetChanged();
     }
 
 }

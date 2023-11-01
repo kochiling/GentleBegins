@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 public class DiaperAdapter extends RecyclerView.Adapter<DViewHolder> {
 
@@ -41,6 +42,13 @@ public class DiaperAdapter extends RecyclerView.Adapter<DViewHolder> {
     public int getItemCount() {
         return diaperList.size();
     }
+
+    @SuppressLint("NotifyDataSetChanged")
+    public void searchDataList(ArrayList<DiaperClass> searchList){
+        diaperList = searchList;
+        notifyDataSetChanged();
+    }
+
 }
 
 class DViewHolder extends RecyclerView.ViewHolder{
@@ -57,3 +65,4 @@ class DViewHolder extends RecyclerView.ViewHolder{
 
     }
 }
+

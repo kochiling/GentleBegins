@@ -6,9 +6,11 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.SearchView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -28,6 +30,7 @@ public class SummaryMedicine extends AppCompatActivity {
     RecyclerView recyclerView;
     List<MedicineClass> medicineList;
     MedicineAdapter adapter;
+    SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +44,8 @@ public class SummaryMedicine extends AppCompatActivity {
         FirebaseAuth dbAuth = FirebaseAuth.getInstance();
 
         recyclerView = findViewById(R.id.recyclerView);
+        searchView = findViewById(R.id.search);
+
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(SummaryMedicine.this, 1);
         recyclerView.setLayoutManager(gridLayoutManager);
@@ -80,6 +85,32 @@ public class SummaryMedicine extends AppCompatActivity {
             }
         });
 
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                searchList(newText);
+                return true;
+            }
+        });
 
+
+    }
+
+    public void searchList(String text) {
+        ArrayList<MedicineClass> searchList = new ArrayList<>();
+        for (MedicineClass medicineClass : medicineList) {
+            if (medicineClass.getMedSymptoms().toLowerCase().contains(text.toLowerCase()) ||
+                    medicineClass.getMedicineType().toLowerCase().contains(text.toLowerCase()) ||
+                    medicineClass.getMedAmount().toLowerCase().contains(text.toLowerCase()) ||
+                    medicineClass.getMedDate().toLowerCase().contains(text.toLowerCase()) ||
+                    medicineClass.getMedTime().toLowerCase().contains(text.toLowerCase())) {
+                searchList.add(medicineClass);
+            }
+        }
+        adapter.searchDataList(searchList);
     }
 }

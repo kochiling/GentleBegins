@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MilkFeedingAdapter extends RecyclerView.Adapter <MilkViewHolder> {
@@ -42,6 +43,12 @@ public class MilkFeedingAdapter extends RecyclerView.Adapter <MilkViewHolder> {
     @Override
     public int getItemCount() {
         return milkList.size();
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    public void searchDataList(ArrayList<MilkFeedingClass> searchList){
+        milkList = searchList;
+        notifyDataSetChanged();
     }
 }
 

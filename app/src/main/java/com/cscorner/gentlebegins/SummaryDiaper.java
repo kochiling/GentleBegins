@@ -20,6 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import androidx.appcompat.widget.SearchView;
 
 public class SummaryDiaper extends AppCompatActivity {
 
@@ -28,6 +29,7 @@ public class SummaryDiaper extends AppCompatActivity {
     RecyclerView recyclerView;
     List<DiaperClass> diaperList;
     DiaperAdapter adapter;
+    SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,7 @@ public class SummaryDiaper extends AppCompatActivity {
         FirebaseAuth dbAuth = FirebaseAuth.getInstance();
 
         recyclerView = findViewById(R.id.recyclerView);
+        searchView = findViewById(R.id.search);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(SummaryDiaper.this, 1);
         recyclerView.setLayoutManager(gridLayoutManager);
@@ -80,5 +83,30 @@ public class SummaryDiaper extends AppCompatActivity {
             }
         });
 
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                searchList(newText);
+                return true;
+            }
+        });
+
+    }
+
+    public void searchList(String text) {
+        ArrayList<DiaperClass> searchList = new ArrayList<>();
+        for (DiaperClass diaperClass : diaperList) {
+            if (diaperClass.getDiaperStatus().toLowerCase().contains(text.toLowerCase()) ||
+                    diaperClass.getDiaperNotes().toLowerCase().contains(text.toLowerCase()) ||
+                    diaperClass.getDiaperDate().toLowerCase().contains(text.toLowerCase()) ||
+                    diaperClass.getDiaperTime().toLowerCase().contains(text.toLowerCase())) {
+                searchList.add(diaperClass);
+            }
+        }
+        adapter.searchDataList(searchList);
     }
 }

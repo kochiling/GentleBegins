@@ -178,7 +178,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="15dp"
                 android:autofillHints=""
-                android:background="@drawable/rectanglebigger2"
+                android:background="@android:drawable/editbox_background"
                 android:ems="10"
                 android:hint="@string/diaper_Notes"
                 android:inputType="textPersonName"

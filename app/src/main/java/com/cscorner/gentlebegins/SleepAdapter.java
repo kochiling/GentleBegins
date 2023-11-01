@@ -1,5 +1,6 @@
 package com.cscorner.gentlebegins;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 public class SleepAdapter extends RecyclerView.Adapter<SViewHolder>{
 
@@ -36,15 +38,17 @@ public class SleepAdapter extends RecyclerView.Adapter<SViewHolder>{
         holder.recStart.setText(sleepList.get(position).getTimeStart());
         holder.recEnd.setText(sleepList.get(position).getTimeEnd());
 
-
-
-
-
     }
 
     @Override
     public int getItemCount() {
         return sleepList.size();
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    public void searchDataList(ArrayList<SleepingClass> searchList){
+        sleepList = searchList;
+        notifyDataSetChanged();
     }
 }
 
@@ -59,7 +63,6 @@ class SViewHolder extends RecyclerView.ViewHolder{
         recDuration = itemView.findViewById(R.id.recDuration);
         recStart = itemView.findViewById(R.id.recStart);
         recEnd = itemView.findViewById(R.id.recEnd);
-
 
     }
 }
