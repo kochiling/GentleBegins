@@ -15,7 +15,6 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Objects;
 
@@ -48,9 +47,9 @@ public class PersonalInformation extends AppCompatActivity {
         spinnerbabygender.setAdapter(adapter);
 
         savepersonalinformation.setOnClickListener(view -> {
-            String parentsname = editTextparentname.getText().toString();
-            String relationship = editTextrelationship.getText().toString();
-            String babyname = editTextbabyname.getText().toString();
+            String parentsname = Objects.requireNonNull(editTextparentname.getText()).toString();
+            String relationship = Objects.requireNonNull(editTextrelationship.getText()).toString();
+            String babyname = Objects.requireNonNull(editTextbabyname.getText()).toString();
             String babygender = spinnerbabygender.getSelectedItem().toString();
             String babybirthday = babyBirthday.getText().toString();
 
@@ -63,7 +62,7 @@ public class PersonalInformation extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Toast.makeText(PersonalInformation.this, "Saved", Toast.LENGTH_SHORT).show();
 
-                            Intent intent = new Intent(PersonalInformation.this, Record_routines.class);
+                            Intent intent = new Intent(PersonalInformation.this, HomePage.class);
                             startActivity(intent);
                             finish();
                         }
@@ -77,7 +76,7 @@ public class PersonalInformation extends AppCompatActivity {
         int month = calendar.get(Calendar.MONTH);
         int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
 
-        DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+        @SuppressLint("SetTextI18n") DatePickerDialog datePickerDialog = new DatePickerDialog(this,
                 (view, year1, monthOfYear, dayOfMonth1) -> babyBirthday.setText(dayOfMonth1 + "/" + (monthOfYear + 1) + "/" + year1), year, month, dayOfMonth);
 
         datePickerDialog.show();

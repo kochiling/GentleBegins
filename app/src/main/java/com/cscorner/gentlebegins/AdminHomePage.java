@@ -26,9 +26,7 @@ public class AdminHomePage extends AppCompatActivity {
     TextView usersdetails;
     TextView additionaltips;
     AdminViewUserMyAdapter viewUserAdapter;
-
     RecyclerView viewUserrecyclerView;
-
     List<AdminViewUserDataClass> viewUserdataList;
 
     ValueEventListener ViewUsereventListener;
