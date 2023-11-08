@@ -131,6 +131,9 @@
     <string name="profile">Profile page</string>
     <string name="addgallery">Add Gallery</string>
     <string name="backtohomepage">backTOhomepage</string>
+    <string name="check_history">Check History</string>
+    <string name="notes">Notes :</string>
+    <string name="symptoms1">Symptoms:</string>
 </resources>
 
 

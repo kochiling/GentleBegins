@@ -18,10 +18,11 @@
 
         <TextView
             android:id="@+id/recStatus1"
-            android:layout_width="90dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
+            android:maxLines="1"
             android:text="@string/diaper_status"
             android:textColor="#1976D2"
             android:textSize="14sp"
@@ -38,11 +39,25 @@
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/recNotes"
-            android:layout_width="140dp"
+            android:id="@+id/recNotes1"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/recStatus"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="0dp"
+            android:maxLines="1"
+            android:text="@string/notes"
+            android:textColor="#5C6BC0"
+            android:textSize="14sp"
+            tools:ignore="TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/recNotes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/recStatus"
+            android:layout_marginStart="65dp"
+            android:layout_marginTop="0dp"
             android:maxLines="1"
             android:text="@string/diaper_Notes"
             android:textColor="#5C6BC0"
