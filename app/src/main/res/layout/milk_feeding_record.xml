@@ -97,7 +97,7 @@
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="50dp"
                 android:autofillHints=""
-                android:background="@drawable/rectangle"
+                android:background="@android:drawable/editbox_background"
                 android:ems="10"
                 android:inputType="number"
                 tools:ignore="LabelFor,SpeakableTextPresentCheck" />

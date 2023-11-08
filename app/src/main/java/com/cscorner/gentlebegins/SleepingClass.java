@@ -2,10 +2,10 @@ package com.cscorner.gentlebegins;
 
 public class SleepingClass {
 
-    private String TimeStart;
-    private String TimeEnd;
-    private String Duration;
-    private String SleepMode;
+    private String timeStart;
+    private String timeEnd;
+    private String duration;
+    private String sleepMode;
 
     private String key;
 
@@ -21,25 +21,25 @@ public class SleepingClass {
     }
 
     public String getTimeStart() {
-        return TimeStart;
+        return timeStart;
     }
 
     public String getTimeEnd() {
-        return TimeEnd;
+        return timeEnd;
     }
 
     public String getDuration() {
-        return Duration;
+        return duration;
     }
 
     public String getSleepMode() {
-        return SleepMode;
+        return sleepMode;
     }
 
     public SleepingClass(String timeStart, String timeEnd, String duration, String sleepMode) {
-        TimeStart = timeStart;
-        TimeEnd = timeEnd;
-        Duration = duration;
-        SleepMode = sleepMode;
+        this.timeStart = timeStart;
+        this.timeEnd = timeEnd;
+        this.duration = duration;
+        this.sleepMode = sleepMode;
     }
 }

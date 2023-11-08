@@ -173,7 +173,7 @@ public class Diaper_Record extends AppCompatActivity {
 
         FirebaseAuth dbAuth = FirebaseAuth.getInstance();
 
-        DiaperClass diaperClass = new DiaperClass(date,time,status,notes);
+        DiaperClass diaperClass = new DiaperClass(status,notes,date,time);
         String currentDate = DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
 
         String user_id = Objects.requireNonNull(dbAuth.getCurrentUser()).getUid();

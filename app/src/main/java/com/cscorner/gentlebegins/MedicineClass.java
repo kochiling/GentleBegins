@@ -20,12 +20,12 @@ public class MedicineClass {
     public MedicineClass() {
     }
 
-    public String getMedicineType() {
-        return medicineType;
-    }
-
     public String getMedSymptoms() {
         return medSymptoms;
+    }
+
+    public String getMedicineType() {
+        return medicineType;
     }
 
     public String getMedAmount() {
@@ -42,9 +42,9 @@ public class MedicineClass {
 
 
 
-    public MedicineClass(String medicineType, String medSymptoms, String medAmount, String medDate, String medTime) {
-        this.medicineType = medicineType;
+    public MedicineClass(String medSymptoms ,String medicineType,  String medAmount, String medDate, String medTime) {
         this.medSymptoms = medSymptoms;
+        this.medicineType = medicineType;
         this.medAmount = medAmount;
         this.medDate = medDate;
         this.medTime = medTime;

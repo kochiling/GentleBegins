@@ -4,32 +4,59 @@
 
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
     <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
 
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_gentlebegins"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_gentlebegins_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GentleBegins"
         tools:targetApi="33">
         <activity
+            android:name=".User_Additional_Tips"
+            android:exported="false" />
+        <activity
             android:name=".SummaryDiaper"
             android:exported="false" />
         <activity
-            android:name=".Login"
-            android:exported="true" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-        </activity>
+            android:name=".HomePage"
+            android:exported="false" />
+        <activity
+            android:name=".AdminEditTips"
+            android:exported="false" />
+        <activity
+            android:name=".SummaryFood"
+            android:exported="false" />
+        <activity
+            android:name=".SummarySleep"
+            android:exported="false" />
+        <activity
+            android:name=".Summary_Milk"
+            android:exported="false" />
+        <activity
+            android:name=".Summary_Main"
+            android:exported="false" />
 
         <activity
-            android:name=".profile_page"
+            android:name=".AddTipsDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SummaryMedicine"
+            android:exported="false" />
+        <activity
+            android:name=".UploadTask"
+            android:exported="false" />
+        <activity
+            android:name=".Main_Task"
             android:exported="false" />
         <activity
             android:name=".SolidFood_record"
@@ -53,15 +80,29 @@
             android:name=".Record_routines"
             android:exported="false" />
         <activity
+            android:name=".PersonalInformation"
+            android:exported="false" />
+        <activity
             android:name=".Register"
             android:exported="false" />
         <activity
-            android:name=".SummaryMedicine"
+            android:name=".AdminHomePage"
             android:exported="false" />
         <activity
-            android:name=".SummaryPage"
-            android:exported="false"/>
+            android:name=".AdminAddTips"
+            android:exported="false" />
+        <activity
+            android:name=".ManageAdditionalTips"
+            android:exported="false" />
+        <activity
+            android:name=".Login"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

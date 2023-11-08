@@ -1,11 +1,11 @@
 package com.cscorner.gentlebegins;
-public class MilkFeedingClass {
+public class MilkFeedingClass  {
 
-    private String MilkDate;
-    private String MilkTime;
-    private String MilkType;
-    private String MilkAmount;
-    private String MilkUnit;
+    private String milkDate;
+    private String milkTime;
+    private String milkType;
+    private String milkAmount;
+    private String milkUnit;
     private String key;
 
     public void setKey(String key) {
@@ -16,34 +16,36 @@ public class MilkFeedingClass {
         return key;
     }
 
-    public String getMilkDate() {
-        return MilkDate;
-    }
-
-    public String getMilkTime() {
-        return MilkTime;
-    }
-
     public String getMilkType() {
-        return MilkType;
+        return milkType;
     }
 
     public String getMilkAmount() {
-        return MilkAmount;
+        return milkAmount;
     }
 
     public String getMilkUnit() {
-        return MilkUnit;
+        return milkUnit;
     }
+
+    public String getMilkDate() {
+        return milkDate;
+    }
+
+    public String getMilkTime() {
+        return milkTime;
+    }
+
 
     public MilkFeedingClass() {
     }
 
-    public MilkFeedingClass(String milkDate, String milkTime, String milkType, String milkAmount, String milkUnit) {
-        MilkDate = milkDate;
-        MilkTime = milkTime;
-        MilkType = milkType;
-        MilkAmount = milkAmount;
-        MilkUnit = milkUnit;
+    public MilkFeedingClass( String milkType, String milkAmount, String milkUnit,String milkDate, String milkTime) {
+        this.milkType = milkType;
+        this.milkAmount = milkAmount;
+        this.milkUnit = milkUnit;
+        this.milkDate = milkDate;
+        this.milkTime = milkTime;
+
     }
 }

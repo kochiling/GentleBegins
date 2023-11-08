@@ -3,8 +3,11 @@ package com.cscorner.gentlebegins;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -90,5 +93,20 @@ public class Register extends AppCompatActivity {
                         });
             }
         });
+    }
+    public void ShowHidePass(View view) {
+        TextInputEditText password = findViewById(R.id.password);
+
+        if (view.getId() == R.id.show_pass_btn) {
+            if (password.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())) {
+                ((ImageView) view).setImageResource(R.drawable.baseline_visibility_off_24);
+
+                password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            } else {
+                ((ImageView) view).setImageResource(R.drawable.baseline_visibility_24);
+
+                password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            }
+        }
     }
 }
