@@ -35,6 +35,7 @@
     <string name="sleep_Mode">Sleep Mode</string>
     <string name="medicine_record">Medicine Tracker</string>
     <string name="symptoms">Symptoms</string>
+
     <string name="type_medicine">Type of Medicine</string>
     <string name="reminder">Reminder</string>
     <string name="no_reminder">No Reminders Set\nClick + to add the reminders</string>
@@ -69,6 +70,17 @@
     <string name="userdetails">User Details</string>
     <string name="additionaltips">Additional Tips</string>
     <string name="addtips">Add additional tips</string>
+
+    <string name="date_format">Date:</string>
+    <string name="time_format">Time: </string>
+    <string name="diaper_notes_format">Diaper Notes: </string>
+    <string name="diaper_status_format">Diaper Status: </string>
+    <string name="placeholder">N/A</string>
+
+    <string name="date_placeholder">%s</string>
+    <string name="time_placeholder">%s</string>
+    <string name="diaper_notes_placeholder">%s</string>
+    <string name="diaper_status_placeholder">%s</string>
 
 
     <string-array name="milk_type">
@@ -113,6 +125,7 @@
     <string name="enter_description">Enter description</string>
     <string name="enter_language">Enter language</string>
     <string name="desc">desc</string>
+    <string name="medicdesc">Description:</string>
     <string name="priority">priority</string>
     <string name="upload_task">Add Task</string>
     <string name="done_task">Done Task</string>

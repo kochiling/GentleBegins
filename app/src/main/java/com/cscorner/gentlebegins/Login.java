@@ -27,7 +27,7 @@ public class Login extends AppCompatActivity {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-            Intent intent = new Intent(getApplicationContext(), Record_routines.class);
+            Intent intent = new Intent(getApplicationContext(), Login.class);
             startActivity(intent);
             finish();
         }
@@ -45,7 +45,7 @@ public class Login extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         textView = findViewById(R.id.registerNow);
         textView.setOnClickListener(view -> {
-            Intent intent = new Intent(getApplicationContext(), Register.class);
+            Intent intent = new Intent(getApplicationContext(), Login.class);
             startActivity(intent);
             finish();
         });

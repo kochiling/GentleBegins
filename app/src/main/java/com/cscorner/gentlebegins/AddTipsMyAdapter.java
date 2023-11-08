@@ -11,9 +11,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.bumptech.glide.Glide;
-
 import java.util.List;
 
 public class AddTipsMyAdapter extends RecyclerView.Adapter<AddTipsMyAdapter.AddTipsMyViewHolder> {
@@ -34,7 +31,7 @@ public class AddTipsMyAdapter extends RecyclerView.Adapter<AddTipsMyAdapter.AddT
 
     @Override
     public void onBindViewHolder(@NonNull AddTipsMyViewHolder holder, int position) {
-        Glide.with(context).load(dataList.get(position).getDataImage()).into(holder.recImage);
+
         holder.recTitle.setText(dataList.get(position).getDataTitle());
         holder.recLink.setText(dataList.get(position).getDataLink());
         holder.recDesc.setText(dataList.get(position).getDataDesc());
