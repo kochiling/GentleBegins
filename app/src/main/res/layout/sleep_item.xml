@@ -50,7 +50,7 @@
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/recStart"
+            android:id="@+id/recStart1"
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/recDuration"
@@ -61,11 +61,34 @@
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/recEnd"
+            android:id="@+id/recStart"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/recDuration"
+            android:layout_marginStart="100dp"
+            android:maxLines="1"
+            android:text="@string/sleep_timeStart"
+            android:textColor="#5C6BC0"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/recEnd1"
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/recStart"
             android:layout_marginStart="20dp"
+            android:layout_marginBottom="12dp"
+            android:maxLines="1"
+            android:text="@string/sleep_timeEnd"
+            android:textColor="#5C6BC0"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/recEnd"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/recStart"
+            android:layout_marginStart="100dp"
             android:layout_marginBottom="12dp"
             android:maxLines="1"
             android:text="@string/sleep_timeEnd"

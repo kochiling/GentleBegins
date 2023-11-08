@@ -17,16 +17,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <ImageButton
-            android:id="@+id/alarmIcon"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="end"
-            app:srcCompat="@drawable/alarm_icon"
-            android:contentDescription="@string/reminder"
-            android:backgroundTint="@android:color/transparent"
-            android:scaleType="fitXY"
-            android:layout_marginEnd="16dp"/>
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -49,7 +39,7 @@
             android:layout_marginTop="50dp"
             android:text="@string/record_r"
             android:textAlignment="center"
-            android:textSize="50sp"
+            android:textSize="40sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -57,9 +47,10 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="253dp"
+            android:layout_height="wrap_content"
             android:baselineAligned="false"
             android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
             android:weightSum="2">
 
             <LinearLayout
@@ -67,7 +58,7 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="1"
                 android:orientation="vertical"
@@ -103,7 +94,7 @@
                 android:id="@+id/DiaperBLayout"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginEnd="20dp"
                 android:layout_weight="1"
                 android:orientation="vertical"
@@ -139,9 +130,10 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="269dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:weightSum="2"
+            android:layout_marginBottom="50dp"
             android:baselineAligned="false">
 
             <LinearLayout
@@ -149,7 +141,7 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginEnd="5dp"
                 android:layout_weight="1"
                 android:orientation="vertical"
@@ -185,7 +177,7 @@
                 android:id="@+id/MedicineBLayout"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginEnd="20dp"
                 android:layout_weight="1"
                 android:orientation="vertical"
@@ -223,18 +215,12 @@
             android:id="@+id/summaryButton"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="@string/summary_b"
+            android:text="@string/check_history"
             android:textSize="20sp"
             android:background="@drawable/cylinder_btn"
             android:backgroundTint="@color/morandi_purple"
             tools:ignore="VisualLintButtonSize" />
 
-        <Button
-            android:id="@+id/logoutButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/logout"
-            android:onClick="logout" />
 
     </LinearLayout>
 
