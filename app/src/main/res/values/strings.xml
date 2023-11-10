@@ -118,7 +118,20 @@
     <string name="done_task">Done Task</string>
     <string name="uploadtipspic">UploadTipsPic</string>
     <string name="back_to_add_tips_page">Back to Add Tips page</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="EditAddTips">Update</string>
+    <string name="update">Update</string>
+    <string name="logo">logo</string>
+    <string name="back_button_text">back\n</string>
+    <string name="baby_s_gallery">babygallery\n</string>
+    <string name="add_a_caption">Add a caption...</string>
+    <string name="captions">Captions</string>
 </resources>
+
+
+
+
 
 
 

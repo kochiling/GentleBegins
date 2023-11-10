@@ -21,26 +21,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GentleBegins"
         tools:targetApi="33">
+
         <activity
             android:name=".AdminEditTips"
             android:exported="false" />
         <activity
             android:name=".AddTipsDetailActivity"
             android:exported="false" />
+
         <activity
             android:name=".UploadTask"
             android:exported="false" />
         <activity
             android:name=".Main_Task"
-            android:exported="false" />
-        <activity
-            android:name=".UploadActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".homepage"
             android:exported="false" />
         <activity
             android:name=".SolidFood_record"
@@ -67,31 +60,22 @@
             android:name=".PersonalInformation"
             android:exported="false" />
         <activity
+            android:name=".Register"
+            android:exported="false" />
+        <activity
             android:name=".AdminHomePage"
             android:exported="false" />
         <activity
             android:name=".AdminAddTips"
             android:exported="false" />
         <activity
-            android:name=".AdminUserProfile"
-            android:exported="false" />
-        <activity
-            android:name=".AdminUsersRecordSleeping"
-            android:exported="false" />
-        <activity
-            android:name=".AdminUsersRecordMedicine"
-            android:exported="false" />
-        <activity
-            android:name=".AdminUsersRecordFeeding"
-            android:exported="false" />
-        <activity
-            android:name=".AdminUsersRecordDiaper"
-            android:exported="false" />
-        <activity
             android:name=".ManageAdditionalTips"
             android:exported="false" />
         <activity
-            android:name=".Register"
+            android:name=".UploadGallery"
+            android:exported="false" />
+        <activity
+            android:name=".NewGallery"
             android:exported="false" />
         <activity
             android:name=".Login"
