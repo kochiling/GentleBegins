@@ -122,16 +122,16 @@
     <string name="edit">Edit</string>
     <string name="EditAddTips">Update</string>
     <string name="update">Update</string>
-    <string name="logo">logo</string>
-    <string name="back_button_text">back\n</string>
-    <string name="baby_s_gallery">babygallery\n</string>
-    <string name="add_a_caption">Add a caption...</string>
-    <string name="captions">Captions</string>
+    <string name="relationship">Relationship:</string>
+    <string name="baby_s_birthday">Baby\'s birthday</string>
+    <string name="baby_s_name">Baby\'s name:</string>
+    <string name="baby_s_gender">Baby\'s gender:</string>
+    <string name="unit">Unit:</string>
+    <string name="minutes">minutes</string>
+    <string name="profile">Profile page</string>
+    <string name="addgallery">Add Gallery</string>
+    <string name="backtohomepage">backTOhomepage</string>
 </resources>
-
-
-
-
 
 
 

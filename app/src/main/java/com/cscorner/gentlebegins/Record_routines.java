@@ -71,6 +71,12 @@ public class Record_routines extends AppCompatActivity {
             startActivity(intent);
         });
 
+        summaryButton.setOnClickListener(v -> {
+            Intent intent = new Intent(Record_routines.this, Summary_Main.class);
+            startActivity(intent);
+        });
+
+
     }
 
     public void logout(View view) {

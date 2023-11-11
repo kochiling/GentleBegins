@@ -3,8 +3,11 @@ package com.cscorner.gentlebegins;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,7 +30,7 @@ public class Login extends AppCompatActivity {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-            Intent intent = new Intent(getApplicationContext(), Record_routines.class);
+            Intent intent = new Intent(getApplicationContext(), HomePage.class);
             startActivity(intent);
             finish();
         }
@@ -75,7 +78,7 @@ public class Login extends AppCompatActivity {
                     progressBar.setVisibility(View.GONE);
                     if (task.isSuccessful()) {
                         Toast.makeText(Login.this, "Login Successful.", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(), Record_routines.class);
+                        Intent intent = new Intent(getApplicationContext(), HomePage.class);
                         startActivity(intent);
                         finish();
                     } else {
@@ -86,6 +89,22 @@ public class Login extends AppCompatActivity {
             }
 
         });
+    }
+
+    public void ShowHidePass(View view) {
+        TextInputEditText password = findViewById(R.id.password);
+
+        if (view.getId() == R.id.show_pass_btn) {
+            if (password.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())) {
+                ((ImageView) view).setImageResource(R.drawable.baseline_visibility_off_24);
+
+                password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            } else {
+                ((ImageView) view).setImageResource(R.drawable.baseline_visibility_24);
+
+                password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            }
+        }
     }
 }
 

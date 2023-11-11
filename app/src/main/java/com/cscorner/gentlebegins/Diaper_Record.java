@@ -17,10 +17,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Objects;
 import java.util.HashMap;
@@ -42,7 +46,6 @@ public class Diaper_Record extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FirebaseAuth dbAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.diaper_record);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -82,35 +85,7 @@ public class Diaper_Record extends AppCompatActivity {
         diaperSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Get the user input and perform data processing here
-                String date = diaperEditDate.getText().toString();
-                String time = diaperEditTime.getText().toString();
-                String status;
-                if (radioButton1.isChecked()) {
-                    status = radioButton1.getText().toString();
-                } else if (radioButton2.isChecked()) {
-                    status = radioButton2.getText().toString();
-                } else {
-                    status = "No status selected";
-                }
-                String notes = diaperEditNotes.getText().toString();
-
-                String user_id = Objects.requireNonNull(dbAuth.getCurrentUser()).getUid();
-                DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users")
-                        .child(user_id).child("Diaper").child("Time Stamp");
-
-                Map<String, Object> newPost = new HashMap<>();
-                newPost.put("Diaper_status",status);
-                newPost.put("Diaper_notes", notes);
-                newPost.put("Date",date);
-                newPost.put("Time",time);
-
-                current_user_db.child(date).child(time).setValue(newPost);
-
-
-                // For demonstration, show a Toast message with the collected data
-                String message = "Date: " + date + "\nTime: " + time + "\nStatus: " + status + "\nNotes: " + notes;
-                Toast.makeText(Diaper_Record.this, message, Toast.LENGTH_LONG).show();
+                saveData();
             }
         });
     }
@@ -182,8 +157,42 @@ public class Diaper_Record extends AppCompatActivity {
         // Update the time button with the current time
         diaperEditTime.setText(hour + ":" + minute);
     }
+
+    public void saveData(){
+        String date = diaperEditDate.getText().toString();
+        String time = diaperEditTime.getText().toString();
+        String status;
+        if (radioButton1.isChecked()) {
+            status = radioButton1.getText().toString();
+        } else if (radioButton2.isChecked()) {
+            status = radioButton2.getText().toString();
+        } else {
+            status = "No status selected";
+        }
+        String notes = diaperEditNotes.getText().toString();
+
+        FirebaseAuth dbAuth = FirebaseAuth.getInstance();
+
+        DiaperClass diaperClass = new DiaperClass(status,notes,date,time);
+        String currentDate = DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
+
+        String user_id = Objects.requireNonNull(dbAuth.getCurrentUser()).getUid();
+
+        FirebaseDatabase.getInstance().getReference("Users").child(user_id).child("Diaper Record").child(currentDate)
+                .setValue(diaperClass).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(Diaper_Record.this, "Saved", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(Diaper_Record.this, Objects.requireNonNull(e.getMessage()), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+    }
 }
-
-
-
-

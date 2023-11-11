@@ -21,14 +21,37 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GentleBegins"
         tools:targetApi="33">
-
+        <activity
+            android:name=".User_Additional_Tips"
+            android:exported="false" />
+        <activity
+            android:name=".SummaryDiaper"
+            android:exported="false" />
+        <activity
+            android:name=".HomePage"
+            android:exported="false" />
         <activity
             android:name=".AdminEditTips"
             android:exported="false" />
         <activity
-            android:name=".AddTipsDetailActivity"
+            android:name=".SummaryFood"
+            android:exported="false" />
+        <activity
+            android:name=".SummarySleep"
+            android:exported="false" />
+        <activity
+            android:name=".Summary_Milk"
+            android:exported="false" />
+        <activity
+            android:name=".Summary_Main"
             android:exported="false" />
 
+        <activity
+            android:name=".AddTipsDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SummaryMedicine"
+            android:exported="false" />
         <activity
             android:name=".UploadTask"
             android:exported="false" />
@@ -70,12 +93,6 @@
             android:exported="false" />
         <activity
             android:name=".ManageAdditionalTips"
-            android:exported="false" />
-        <activity
-            android:name=".UploadGallery"
-            android:exported="false" />
-        <activity
-            android:name=".NewGallery"
             android:exported="false" />
         <activity
             android:name=".Login"

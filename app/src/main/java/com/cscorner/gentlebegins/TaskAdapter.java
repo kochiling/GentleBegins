@@ -1,7 +1,7 @@
 package com.cscorner.gentlebegins;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,16 +11,26 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.List;
+import java.util.Objects;
 
 public class TaskAdapter extends RecyclerView.Adapter<TViewHolder> {
 
     private Context context;
     private List<TaskClass> taskList;
+    DatabaseReference databaseReference;
+
     public TaskAdapter(Context context, List<TaskClass> taskList) {
         this.context = context;
         this.taskList = taskList;
@@ -32,11 +42,13 @@ public class TaskAdapter extends RecyclerView.Adapter<TViewHolder> {
         return new TViewHolder(view);
     }
     @Override
-    public void onBindViewHolder(@NonNull TViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull TViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.recTitle.setText(taskList.get(position).getTaskTitle());
         holder.recDesc.setText(taskList.get(position).getTaskDesc());
         holder.recDt.setText(taskList.get(position).getTaskDT());
     }
+
+
     @Override
     public int getItemCount() {
         return taskList.size();
@@ -45,7 +57,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TViewHolder> {
 }
 class TViewHolder extends RecyclerView.ViewHolder{
     TextView recTitle, recDesc, recDt;
-
     CheckBox checkBox;
     CardView recCard;
 
@@ -62,6 +73,7 @@ class TViewHolder extends RecyclerView.ViewHolder{
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
+
                     Toast.makeText(itemView.getContext(), "Done Task", Toast.LENGTH_SHORT).show();
                     recTitle.setPaintFlags(recTitle.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
                     recDesc.setPaintFlags(recDesc.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);

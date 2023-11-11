@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:textSize="25sp"
-        android:background="@color/green"
+        android:background="@color/morandi_pink"
         app:popupTheme="@style/AppTheme.PopupOverlay"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +24,7 @@
             android:layout_gravity="end"
             app:srcCompat="@drawable/alarm_icon"
             android:contentDescription="@string/reminder"
-            android:backgroundTint="@color/green"
+            android:backgroundTint="@android:color/transparent"
             android:scaleType="fitXY"
             android:layout_marginEnd="16dp"/>
 
@@ -68,12 +68,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="70dp"
+                android:layout_marginEnd="5dp"
                 android:layout_weight="1"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/cylinder_btn"
                 tools:ignore="TextSizeCheck">
 
                 <ImageButton
@@ -83,7 +85,8 @@
                     android:contentDescription="@string/feed_b"
                     android:scaleType="fitXY"
                     app:srcCompat="@drawable/__9_2023_at_22_12_26"
-                    tools:ignore="DuplicateSpeakableTextCheck" />
+                    tools:ignore="DuplicateSpeakableTextCheck"
+                    android:backgroundTint="@android:color/transparent"/>
 
                 <TextView
                     android:id="@+id/buttonText"
@@ -108,6 +111,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/cylinder_btn"
                 tools:ignore="TextSizeCheck">
 
                 <ImageButton
@@ -116,6 +120,7 @@
                     android:layout_height="150dp"
                     android:contentDescription="@string/diaper_b"
                     android:scaleType="fitXY"
+                    android:backgroundTint="@android:color/transparent"
                     app:srcCompat="@drawable/__9_2023_at_22_15_44"
                     tools:ignore="DuplicateSpeakableTextCheck,ImageContrastCheck" />
 
@@ -145,12 +150,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="60dp"
+                android:layout_marginEnd="5dp"
                 android:layout_weight="1"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/cylinder_btn"
                 tools:ignore="TextSizeCheck">
 
 
@@ -160,6 +167,7 @@
                     android:layout_height="150dp"
                     android:contentDescription="@string/sleep_b"
                     android:scaleType="fitXY"
+                    android:backgroundTint="@android:color/transparent"
                     app:srcCompat="@drawable/__9_2023_at_22_17_12"
                     tools:ignore="DuplicateSpeakableTextCheck" />
 
@@ -185,6 +193,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/cylinder_btn"
                 tools:ignore="TextSizeCheck">
 
                 <ImageButton
@@ -194,6 +203,7 @@
                     android:contentDescription="@string/medicine_b"
                     android:scaleType="fitXY"
                     app:srcCompat="@drawable/medicine_gb"
+                    android:backgroundTint="@android:color/transparent"
                     tools:ignore="DuplicateSpeakableTextCheck,ImageContrastCheck" />
 
                 <TextView
@@ -215,6 +225,8 @@
             android:layout_height="50dp"
             android:text="@string/summary_b"
             android:textSize="20sp"
+            android:background="@drawable/cylinder_btn"
+            android:backgroundTint="@color/morandi_purple"
             tools:ignore="VisualLintButtonSize" />
 
         <Button

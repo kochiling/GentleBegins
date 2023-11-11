@@ -61,7 +61,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="50dp"
                 android:autofillHints=""
-                android:background="@drawable/rectangle"
+                android:background="@android:drawable/editbox_background"
                 tools:ignore="LabelFor,SpeakableTextPresentCheck" />
 
         </RelativeLayout>
