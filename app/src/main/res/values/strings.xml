@@ -131,12 +131,6 @@
     <string name="profile">Profile page</string>
     <string name="addgallery">Add Gallery</string>
     <string name="backtohomepage">backTOhomepage</string>
-    <string name="back_button_text">Back</string>
-    <string name="add_image">Add Image</string>
-    <string name="add_to_gallery">Add to Gallery</string>
-    <string name="add_a_caption">Add a Caption</string>
-    <string name="baby_gallery">Baby Gallery</string>
-    <string name="captions">Captions</string>
 </resources>
 
 
