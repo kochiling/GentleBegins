@@ -4,9 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -99,7 +97,7 @@ public class HomePage extends AppCompatActivity {
         });
 
         addgallery.setOnClickListener(view -> {
-            Intent intent = new Intent(HomePage.this, HomePage.class);
+            Intent intent = new Intent(HomePage.this, UploadGallery.class);
             startActivity(intent);
         });
 
