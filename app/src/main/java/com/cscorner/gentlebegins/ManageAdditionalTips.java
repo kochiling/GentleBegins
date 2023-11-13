@@ -137,6 +137,7 @@ public class ManageAdditionalTips extends AppCompatActivity {
                         Toast.makeText(ManageAdditionalTips.this, "Saved", Toast.LENGTH_SHORT).show();
                         finish();
                     }
-                }).addOnFailureListener(e -> Toast.makeText(ManageAdditionalTips.this, Objects.requireNonNull(e.getMessage()), Toast.LENGTH_SHORT).show());
+                }).addOnFailureListener(e -> Toast.makeText(ManageAdditionalTips.this, Objects
+                        .requireNonNull(e.getMessage()), Toast.LENGTH_SHORT).show());
     }
 }
