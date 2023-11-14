@@ -35,13 +35,13 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bottomNavigationView"
-        android:layout_width="506dp"
-        android:layout_height="109dp"
+        android:layout_width="416dp"
+        android:layout_height="104dp"
         android:layout_marginBottom="4dp"
         android:background="@color/morandi_pink"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent">
 
 
@@ -49,14 +49,14 @@
             android:id="@+id/imageButton4"
             android:layout_width="100dp"
             android:layout_height="70dp"
-            android:layout_marginStart="68dp"
+            android:layout_marginStart="36dp"
             android:backgroundTint="@color/morandi_pink"
             android:contentDescription="reminder"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.4"
+            app:layout_constraintVertical_bias="0.529"
             app:srcCompat="@drawable/reminder_icon" />
 
         <ImageButton
@@ -79,25 +79,37 @@
             android:contentDescription="navbarhomebtn"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.808"
+            app:layout_constraintHorizontal_bias="0.882"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.444"
+            app:layout_constraintVertical_bias="0.529"
             app:srcCompat="@drawable/homepage_icon" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnMilk"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Feeding"
+        android:text="Milk Feeding"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.346" />
+        app:layout_constraintVertical_bias="0.286" />
+
+    <Button
+        android:id="@+id/btnSumSolidFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Solid Food"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.382" />
 
     <Button
         android:id="@+id/button5"
@@ -109,7 +121,7 @@
         app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.472" />
+        app:layout_constraintVertical_bias="0.499" />
 
     <Button
         android:id="@+id/btndiaper"

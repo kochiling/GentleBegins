@@ -22,21 +22,12 @@ public class Login extends AppCompatActivity {
     ProgressBar progressBar;
     TextView textView;
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser != null) {
-            Intent intent = new Intent(getApplicationContext(), Record_routines.class);
-            startActivity(intent);
-            finish();
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
 
         mAuth = FirebaseAuth.getInstance();
         editTextEmail = findViewById(R.id.email);
@@ -75,7 +66,7 @@ public class Login extends AppCompatActivity {
                     progressBar.setVisibility(View.GONE);
                     if (task.isSuccessful()) {
                         Toast.makeText(Login.this, "Login Successful.", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(), Record_routines.class);
+                        Intent intent = new Intent(getApplicationContext(), HomePage.class);
                         startActivity(intent);
                         finish();
                     } else {
@@ -87,7 +78,13 @@ public class Login extends AppCompatActivity {
 
         });
     }
+
+
+
 }
+
+
+
 
 
 

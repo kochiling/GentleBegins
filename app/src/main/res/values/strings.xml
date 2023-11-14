@@ -144,6 +144,22 @@
     <string name="profile">Profile page</string>
     <string name="addgallery">Add Gallery</string>
     <string name="backtohomepage">backTOhomepage</string>
+
+
+    <string name="itemMilkType">Milk Type :</string>
+    <string name="itemMilkAmount">Amount :</string>
+    <string name="itemMilkUnit">Milk Unit :</string>
+    <string name="itemMilkDate">Milk Date :</string>
+    <string name="itemMilkTime">Milk Time :</string>
+
+        <string name="parent_name_format">Parent Name: %s</string>
+        <string name="baby_name_format">Baby Name: %s</string>
+        <string name="relationship_format">Relationship: %s</string>
+        <string name="dob_format">Date of Birth: %s</string>
+        <string name="gender_format">Gender: %s</string>
+
+
+
 </resources>
 
 

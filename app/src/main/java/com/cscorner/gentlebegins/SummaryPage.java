@@ -8,37 +8,27 @@ import android.widget.Button;
 
 public class SummaryPage extends AppCompatActivity {
 
-Button medicbtn,diaperbtn;
+Button medicbtn,diaperbtn, milkbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary_page);
 
-        // Find the diaperbtn Button by its ID.
-        diaperbtn = findViewById(R.id.btndiaper);
+        // Find the milkbtn Button by its ID.
+        milkbtn = findViewById(R.id.btnMilk);
 
         // Set an OnClickListener for the Button.
-        diaperbtn.setOnClickListener(new View.OnClickListener() {
+        milkbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Create an Intent to start the SummaryMedicine activity.
-                Intent intent = new Intent(SummaryPage.this, SummaryDiaper.class);
+                Intent intent = new Intent(SummaryPage.this, Summary_Feeding_satish.class);
                 startActivity(intent);
             }
         });
 
-        // Find the medicbtn Button by its ID.
-        medicbtn = findViewById(R.id.btnmedic);
 
-        // Set an OnClickListener for the Button.
-        medicbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Create an Intent to start the SummaryMedicine activity.
-                Intent intent = new Intent(SummaryPage.this, SummaryMedicine.class);
-                startActivity(intent);
-            }
-        });
+
     }
 }
