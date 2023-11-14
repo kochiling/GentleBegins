@@ -35,7 +35,6 @@
     <string name="sleep_Mode">Sleep Mode</string>
     <string name="medicine_record">Medicine Tracker</string>
     <string name="symptoms">Symptoms</string>
-
     <string name="type_medicine">Type of Medicine</string>
     <string name="reminder">Reminder</string>
     <string name="no_reminder">No Reminders Set\nClick + to add the reminders</string>
@@ -70,17 +69,6 @@
     <string name="userdetails">User Details</string>
     <string name="additionaltips">Additional Tips</string>
     <string name="addtips">Add additional tips</string>
-
-    <string name="date_format">Date:</string>
-    <string name="time_format">Time: </string>
-    <string name="diaper_notes_format">Diaper Notes: </string>
-    <string name="diaper_status_format">Diaper Status: </string>
-    <string name="placeholder">N/A</string>
-
-    <string name="date_placeholder">%s</string>
-    <string name="time_placeholder">%s</string>
-    <string name="diaper_notes_placeholder">%s</string>
-    <string name="diaper_status_placeholder">%s</string>
 
 
     <string-array name="milk_type">
@@ -125,7 +113,6 @@
     <string name="enter_description">Enter description</string>
     <string name="enter_language">Enter language</string>
     <string name="desc">desc</string>
-    <string name="medicdesc">Description:</string>
     <string name="priority">priority</string>
     <string name="upload_task">Add Task</string>
     <string name="done_task">Done Task</string>
@@ -144,22 +131,9 @@
     <string name="profile">Profile page</string>
     <string name="addgallery">Add Gallery</string>
     <string name="backtohomepage">backTOhomepage</string>
-
-
-    <string name="itemMilkType">Milk Type :</string>
-    <string name="itemMilkAmount">Amount :</string>
-    <string name="itemMilkUnit">Milk Unit :</string>
-    <string name="itemMilkDate">Milk Date :</string>
-    <string name="itemMilkTime">Milk Time :</string>
-
-        <string name="parent_name_format">Parent Name: %s</string>
-        <string name="baby_name_format">Baby Name: %s</string>
-        <string name="relationship_format">Relationship: %s</string>
-        <string name="dob_format">Date of Birth: %s</string>
-        <string name="gender_format">Gender: %s</string>
-
-
-
+    <string name="check_history">Check History</string>
+    <string name="notes">Notes :</string>
+    <string name="symptoms1">Symptoms:</string>
 </resources>
 
 

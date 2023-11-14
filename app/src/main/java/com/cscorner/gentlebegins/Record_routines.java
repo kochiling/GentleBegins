@@ -3,15 +3,12 @@ package com.cscorner.gentlebegins;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
-import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Objects;
 
@@ -22,7 +19,7 @@ public class Record_routines extends AppCompatActivity {
     ImageButton diaperButton;
     ImageButton medicineButton;
     Button summaryButton;
-    ImageButton alarmIcon;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +32,7 @@ public class Record_routines extends AppCompatActivity {
         diaperButton = findViewById(R.id.diaperButton);
         medicineButton = findViewById(R.id.medicineButton);
         summaryButton = findViewById(R.id.summaryButton);
-        alarmIcon = findViewById(R.id.alarmIcon);
+
 
         Toolbar toolbar = findViewById(R.id.toolbar_record);
         setSupportActionBar(toolbar);
@@ -66,10 +63,7 @@ public class Record_routines extends AppCompatActivity {
             startActivity(intent);
         });
 
-        alarmIcon.setOnClickListener(v -> {
-            Intent intent = new Intent(Record_routines.this, Main_Task.class);
-            startActivity(intent);
-        });
+
 
         summaryButton.setOnClickListener(v -> {
             Intent intent = new Intent(Record_routines.this, Summary_Main.class);
@@ -77,15 +71,6 @@ public class Record_routines extends AppCompatActivity {
         });
 
 
-    }
-
-    public void logout(View view) {
-        FirebaseAuth.getInstance().signOut(); // Sign out the user
-
-        // Redirect to a login activity
-        Intent intent = new Intent(this, Login.class);
-        startActivity(intent);
-        finish(); // Close the current activity
     }
 
     @Override

@@ -67,7 +67,8 @@ public class PersonalInformation extends AppCompatActivity {
                             finish();
                         }
                     })
-                    .addOnFailureListener(e -> Toast.makeText(PersonalInformation.this, Objects.requireNonNull(e.getMessage()), Toast.LENGTH_SHORT).show());
+                    .addOnFailureListener(e -> Toast.makeText(PersonalInformation.this, Objects.requireNonNull(e.getMessage())
+                            , Toast.LENGTH_SHORT).show());
         });
     }
 
@@ -77,7 +78,8 @@ public class PersonalInformation extends AppCompatActivity {
         int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
 
         @SuppressLint("SetTextI18n") DatePickerDialog datePickerDialog = new DatePickerDialog(this,
-                (view, year1, monthOfYear, dayOfMonth1) -> babyBirthday.setText(dayOfMonth1 + "/" + (monthOfYear + 1) + "/" + year1), year, month, dayOfMonth);
+                (view, year1, monthOfYear, dayOfMonth1) -> babyBirthday.setText
+                        (dayOfMonth1 + "/" + (monthOfYear + 1) + "/" + year1), year, month, dayOfMonth);
 
         datePickerDialog.show();
     }
