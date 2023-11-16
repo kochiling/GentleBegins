@@ -48,7 +48,7 @@ public class Main_Task extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle("ToDo List ");
-        // Enable the Up button (back button)
+
 
 
         FirebaseAuth dbAuth = FirebaseAuth.getInstance();
@@ -146,12 +146,4 @@ public class Main_Task extends AppCompatActivity {
         });
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {// Handle the Up button click (e.g., navigate back)
-            onBackPressed();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }

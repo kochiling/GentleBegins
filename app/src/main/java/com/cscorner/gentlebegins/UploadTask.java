@@ -97,6 +97,7 @@ public class UploadTask extends AppCompatActivity {
         String desc = uploadDesc.getText().toString();
         String dateTime = dateAndTime.getText().toString();
 
+
         TaskClass taskClass = new TaskClass(title, desc, dateTime);
         FirebaseAuth dbAuth = FirebaseAuth.getInstance();
 

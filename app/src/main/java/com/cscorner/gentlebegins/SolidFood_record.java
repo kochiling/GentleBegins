@@ -161,7 +161,8 @@ public class SolidFood_record extends AppCompatActivity {
 
         String user_id = Objects.requireNonNull(dbAuth.getCurrentUser()).getUid();
 
-        FirebaseDatabase.getInstance().getReference("Users").child(user_id).child("Solid Food Feeding Record").child(currentDate)
+        FirebaseDatabase.getInstance().getReference("Users").child(user_id).child("Solid Food Feeding Record").
+                child(currentDate)
                 .setValue(solidFoodClass).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
