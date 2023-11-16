@@ -82,7 +82,7 @@ public class MilkFeeding_record extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         MilkType_spinner.setAdapter(adapter);
 
-        //Milk Amount
+        //Milk Unit
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.milk_amount, android.R.layout.simple_spinner_item);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         MilkAmount_spinner.setAdapter(adapter1);
@@ -171,13 +171,13 @@ public class MilkFeeding_record extends AppCompatActivity {
 
         FirebaseAuth dbAuth = FirebaseAuth.getInstance();
 
-
         MilkFeedingClass milkFeedingClass= new MilkFeedingClass(type,amount,unit,date,time);
         String currentDate = DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
 
         String user_id = Objects.requireNonNull(dbAuth.getCurrentUser()).getUid();
 
-        FirebaseDatabase.getInstance().getReference("Users").child(user_id).child("Milk Feeding Record").child(currentDate)
+        FirebaseDatabase.getInstance().getReference("Users").child(user_id).
+                child("Milk Feeding Record").child(currentDate)
                 .setValue(milkFeedingClass).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
 
