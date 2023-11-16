@@ -43,7 +43,7 @@ public class Summary_Milk extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Milk Feeding History ");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Milk Feeding Summary ");
 
         FirebaseAuth dbAuth = FirebaseAuth.getInstance();
 
