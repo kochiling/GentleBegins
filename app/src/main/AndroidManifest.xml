@@ -101,6 +101,12 @@
             android:name=".AdminAddTips"
             android:exported="false" />
         <activity
+            android:name=".UploadGallery"
+            android:exported="false" />
+        <activity
+            android:name=".NewGallery"
+            android:exported="false" />
+        <activity
             android:name=".ManageAdditionalTips"
             android:exported="false" />
 
