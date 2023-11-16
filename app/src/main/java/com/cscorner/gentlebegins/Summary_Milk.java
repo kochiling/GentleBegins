@@ -81,7 +81,7 @@ public class Summary_Milk extends AppCompatActivity {
                 ItemTouchHelper itemTouchHelper = new ItemTouchHelper(editcardv);
                 itemTouchHelper.attachToRecyclerView(recyclerView);
 
-                ///add
+                ////add
                 adapter.notifyDataSetChanged();
                 dialog.dismiss();
             }
