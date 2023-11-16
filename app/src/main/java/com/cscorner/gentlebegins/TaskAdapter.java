@@ -29,7 +29,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TViewHolder> {
 
     private Context context;
     private List<TaskClass> taskList;
-    DatabaseReference databaseReference;
 
     public TaskAdapter(Context context, List<TaskClass> taskList) {
         this.context = context;
@@ -73,7 +72,6 @@ class TViewHolder extends RecyclerView.ViewHolder{
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-
                     Toast.makeText(itemView.getContext(), "Done Task", Toast.LENGTH_SHORT).show();
                     recTitle.setPaintFlags(recTitle.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
                     recDesc.setPaintFlags(recDesc.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
