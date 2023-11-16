@@ -74,7 +74,7 @@ public class SummaryFood extends AppCompatActivity {
                     solidfoodList.add(foodClass);
                 }
 
-                //add
+                ///add
                 adapter.notifyDataSetChanged();
                 dialog.dismiss();
             }
