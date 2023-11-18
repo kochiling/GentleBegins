@@ -6,18 +6,18 @@ public class profile_pageClass {
     private String dataParentname;
     private String dataBabyname;
     private String dataBabybirthday;
-    private String dataBabyGender;
+    private String dataBabygender;
     private String dataRelationship;
 
     // Empty constructor required by Firebase
     public profile_pageClass() {
     }
 
-    public profile_pageClass(String dataParentname, String dataBabyname, String dataBabybirthday, String dataBabyGender, String dataRelationship) {
+    public profile_pageClass(String dataParentname, String dataBabyname, String dataBabybirthday, String dataBabygender, String dataRelationship) {
         this.dataParentname = dataParentname;
         this.dataBabyname = dataBabyname;
         this.dataBabybirthday = dataBabybirthday;
-        this.dataBabyGender = dataBabyGender;
+        this.dataBabygender = dataBabygender;
         this.dataRelationship = dataRelationship;
     }
 
@@ -40,7 +40,7 @@ public class profile_pageClass {
 
     @PropertyName("dataBabygender")
     public String getBabyGender() {
-        return dataBabyGender;
+        return dataBabygender;
     }
 
     @PropertyName("dataRelationship")

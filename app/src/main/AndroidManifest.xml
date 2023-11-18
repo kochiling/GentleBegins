@@ -22,9 +22,6 @@
         android:theme="@style/Theme.GentleBegins"
         tools:targetApi="33">
         <activity
-            android:name=".Summary_Feeding_satish"
-            android:exported="false" />
-        <activity
             android:name=".User_Additional_Tips"
             android:exported="false" />
         <activity
@@ -80,9 +77,6 @@
             android:exported="false" />
         <activity
             android:name=".Record_routines"
-            android:exported="false" />
-        <activity
-            android:name=".SummaryPage"
             android:exported="false" />
         <activity
             android:name=".PersonalInformation"
