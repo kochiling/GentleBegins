@@ -134,6 +134,8 @@
     <string name="check_history">Check History</string>
     <string name="notes">Notes :</string>
     <string name="symptoms1">Symptoms:</string>
+    <string name="captions" />
+    <string name="add_a_caption">add caption</string>
 </resources>
 
 
