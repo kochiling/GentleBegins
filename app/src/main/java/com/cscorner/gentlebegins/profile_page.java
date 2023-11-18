@@ -24,8 +24,6 @@ public class profile_page extends AppCompatActivity {
     private TextView dobTV;
     private TextView genderTV;
 
-    private DatabaseReference databaseReference;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +40,7 @@ public class profile_page extends AppCompatActivity {
         String user_id = Objects.requireNonNull(dbAuth.getCurrentUser()).getUid();
 
         // Reference to "Personal Information" under the current user
-        databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(user_id).child("Personal Information");
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(user_id).child("Personal Information");
 
         // Add a ValueEventListener to retrieve and update data
         databaseReference.addValueEventListener(new ValueEventListener() {
