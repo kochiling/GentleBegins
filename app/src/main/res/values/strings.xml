@@ -138,8 +138,6 @@
     <string name="symptoms1">Symptoms:</string>
     <string name="captions" />
     <string name="add_a_caption">add caption</string>
-
-
     <string name="parent_name_format">Parent Name: %s</string>
     <string name="baby_name_format">Baby Name: %s</string>
     <string name="relationship_format">Relationship: %s</string>
