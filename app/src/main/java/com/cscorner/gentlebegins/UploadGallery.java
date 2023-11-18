@@ -37,7 +37,7 @@ public class UploadGallery extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Upload Gallery");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Gallery");
 
         dbAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = dbAuth.getCurrentUser();
