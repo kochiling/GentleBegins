@@ -1,5 +1,6 @@
 package com.cscorner.gentlebegins;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,8 +15,8 @@ import java.util.ArrayList;
 
 public class GalleryAdapter extends BaseAdapter {
 
-    private ArrayList<GalleryData> dataList;
-    private Context context;
+    private final ArrayList<GalleryData> dataList;
+    private final Context context;
     LayoutInflater layoutInflater;
 
     public GalleryAdapter(Context context, ArrayList<GalleryData> dataList) {
@@ -38,6 +39,7 @@ public class GalleryAdapter extends BaseAdapter {
         return 0;
     }
 
+    @SuppressLint("InflateParams")
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (layoutInflater == null){

@@ -2,7 +2,6 @@ package com.cscorner.gentlebegins;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.GridView;
 
 import androidx.annotation.NonNull;
@@ -22,18 +21,15 @@ import java.util.ArrayList;
 public class UploadGallery extends AppCompatActivity {
 
     FloatingActionButton fab;
-    private GridView gridView;
     private ArrayList<GalleryData> dataList;
     private GalleryAdapter adapter;
-    private DatabaseReference databaseReference;
-    private FirebaseAuth dbAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload_gallery);
 
-        dbAuth = FirebaseAuth.getInstance();
+        FirebaseAuth dbAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = dbAuth.getCurrentUser();
         if (currentUser == null) {
             // User is not signed in, handle this case.
@@ -45,12 +41,12 @@ public class UploadGallery extends AppCompatActivity {
         String user_id = currentUser.getUid();
 
         fab = findViewById(R.id.fab);
-        gridView = findViewById(R.id.gridView);
+        GridView gridView = findViewById(R.id.gridView);
         dataList = new ArrayList<>();
         adapter = new GalleryAdapter(this, dataList);
         gridView.setAdapter(adapter);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("Users")
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users")
                 .child(user_id)
                 .child("Gallery");
 
@@ -70,13 +66,10 @@ public class UploadGallery extends AppCompatActivity {
             }
         });
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(UploadGallery.this, NewGallery.class);
-                startActivity(intent);
-                finish();
-            }
+        fab.setOnClickListener(view -> {
+            Intent intent = new Intent(UploadGallery.this, NewGallery.class);
+            startActivity(intent);
+            finish();
         });
     }
 }

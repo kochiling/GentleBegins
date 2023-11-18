@@ -131,6 +131,8 @@
     <string name="profile">Profile page</string>
     <string name="addgallery">Add Gallery</string>
     <string name="backtohomepage">backTOhomepage</string>
+    <string name="add_a_caption">Add a Caption</string>
+    <string name="captions">Captions</string>
 </resources>
 
 
