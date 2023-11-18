@@ -1,13 +1,16 @@
 package com.cscorner.gentlebegins;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,6 +33,7 @@ public class Summary_Milk extends AppCompatActivity {
     RecyclerView recyclerView;
     List<MilkFeedingClass> milkList;
     MilkFeedingAdapter adapter;
+    ItemTouchHelper.SimpleCallback editcardv;
     SearchView searchView;
 
     @Override
@@ -39,7 +43,7 @@ public class Summary_Milk extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Milk Feeding History ");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Milk Feeding Summary ");
 
         FirebaseAuth dbAuth = FirebaseAuth.getInstance();
 
@@ -73,7 +77,11 @@ public class Summary_Milk extends AppCompatActivity {
                     milkList.add(milkClass);
                 }
 
-                //add
+                //SWIPE TO DELETE FUNCTION
+                ItemTouchHelper itemTouchHelper = new ItemTouchHelper(editcardv);
+                itemTouchHelper.attachToRecyclerView(recyclerView);
+
+                ////add
                 adapter.notifyDataSetChanged();
                 dialog.dismiss();
             }
@@ -95,6 +103,42 @@ public class Summary_Milk extends AppCompatActivity {
                 return true;
             }
         });
+
+        editcardv = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull final RecyclerView.ViewHolder viewHolder, int direction) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(Summary_Milk.this);
+                builder.setTitle("Delete Milk Record");
+                builder.setMessage("Are You Sure ??");
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        int position = viewHolder.getAdapterPosition();
+                        MilkFeedingClass milkcarddelete = milkList.get(position);
+                        databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(user_id).child("Milk Feeding Record");
+
+                        // Use the key associated with the task to delete it
+                        databaseReference.child(milkcarddelete.getKey()).removeValue();
+                        Toast.makeText(Summary_Milk.this, "Deleted", Toast.LENGTH_SHORT).show();
+
+                        milkList.remove(position);
+                        adapter.notifyItemRemoved(position);
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        adapter.notifyItemChanged(viewHolder.getAdapterPosition());
+                    }
+                });
+                builder.show();
+            }
+        };
 
 
     }

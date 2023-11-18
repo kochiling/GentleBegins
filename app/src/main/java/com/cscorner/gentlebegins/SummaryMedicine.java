@@ -39,7 +39,7 @@ public class SummaryMedicine extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Medicine History ");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Medicine Summary ");
 
         FirebaseAuth dbAuth = FirebaseAuth.getInstance();
 

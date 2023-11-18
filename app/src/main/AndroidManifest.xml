@@ -22,6 +22,9 @@
         android:theme="@style/Theme.GentleBegins"
         tools:targetApi="33">
         <activity
+            android:name=".Summary_Feeding_satish"
+            android:exported="false" />
+        <activity
             android:name=".User_Additional_Tips"
             android:exported="false" />
         <activity
@@ -45,7 +48,6 @@
         <activity
             android:name=".Summary_Main"
             android:exported="false" />
-
         <activity
             android:name=".AddTipsDetailActivity"
             android:exported="false" />
@@ -80,8 +82,15 @@
             android:name=".Record_routines"
             android:exported="false" />
         <activity
+            android:name=".SummaryPage"
+            android:exported="false" />
+        <activity
             android:name=".PersonalInformation"
             android:exported="false" />
+        <activity
+            android:name=".profile_page"
+            android:exported="false">
+        </activity>
         <activity
             android:name=".Register"
             android:exported="false" />
@@ -106,9 +115,9 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
     </application>

@@ -33,7 +33,7 @@ public class Summary_Main extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar_summary);
         setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Record Routine History");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Record Routine Summary");
         // Enable the Up button (back button)
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 

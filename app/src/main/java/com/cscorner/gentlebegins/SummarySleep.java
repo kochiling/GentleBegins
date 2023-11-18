@@ -38,7 +38,7 @@ public class SummarySleep extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Sleeping History ");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Sleeping Summary ");
 
         FirebaseAuth dbAuth = FirebaseAuth.getInstance();
 

@@ -40,7 +40,7 @@ public class SummaryFood extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Solid Food Feeding History ");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Solid Food Feeding Summary ");
 
         FirebaseAuth dbAuth = FirebaseAuth.getInstance();
 
@@ -74,7 +74,7 @@ public class SummaryFood extends AppCompatActivity {
                     solidfoodList.add(foodClass);
                 }
 
-                //add
+                ///add
                 adapter.notifyDataSetChanged();
                 dialog.dismiss();
             }

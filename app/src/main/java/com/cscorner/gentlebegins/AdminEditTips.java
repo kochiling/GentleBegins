@@ -18,8 +18,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -82,7 +80,7 @@ public class AdminEditTips extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
-            Glide.with(AdminEditTips.this).load(bundle.getString("Image")).into(updateImage);
+
             updateTitle.setText(bundle.getString("Title"));
             updateLink.setText(bundle.getString("URL Link"));
             updateDesc.setText(bundle.getString("Description"));

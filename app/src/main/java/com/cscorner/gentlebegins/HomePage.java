@@ -28,7 +28,7 @@ public class HomePage extends AppCompatActivity {
     ImageButton todolist;
     TextView recordroutines;
     TextView addgallery;
-    TextView profilepgae;
+    TextView profilepage;
     RecyclerView recyclerView;
     List<AddTips_DataClass> dataList;
     DatabaseReference databaseReference;
@@ -44,7 +44,7 @@ public class HomePage extends AppCompatActivity {
         todolist = findViewById(R.id.alarmIcon);
         recordroutines = findViewById(R.id.UserRecord);
         addgallery = findViewById(R.id.addgallery);
-        profilepgae = findViewById(R.id.UserProfile);
+        profilepage = findViewById(R.id.UserProfile);
         recyclerView = findViewById(R.id.UseraddtipsRecycleView);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(HomePage.this, 1);
@@ -101,8 +101,8 @@ public class HomePage extends AppCompatActivity {
             startActivity(intent);
         });
 
-        profilepgae.setOnClickListener(view -> {
-            Intent intent = new Intent(HomePage.this, HomePage.class);
+        profilepage.setOnClickListener(view -> {
+            Intent intent = new Intent(HomePage.this, profile_page.class);
             startActivity(intent);
 
         });

@@ -2,11 +2,11 @@ package com.cscorner.gentlebegins;
 
 public class TaskClass {
 
-   private String taskTitle;
-   private String taskDesc;
-   private String taskDT;
-   private boolean isDone;
-   private String key;
+    private String taskTitle;
+    private String taskDesc;
+    private String taskDT;
+    private boolean isDone;
+    private String key;
 
     public String getKey() {
         return key;
