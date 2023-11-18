@@ -38,7 +38,7 @@ public class profile_pageClass {
         return dataBabybirthday;
     }
 
-    @PropertyName("dataBabyGender")
+    @PropertyName("dataBabygender")
     public String getBabyGender() {
         return dataBabyGender;
     }
