@@ -102,10 +102,10 @@ public class NewGallery extends AppCompatActivity {
     private void uploadToFirebase(Uri uri) {
         String caption = uploadCaption.getText().toString();
 
-        // Get the currently logged-in user's UID
+
         String userId = currentUser.getUid();
 
-        // Use a unique key to store each image under the user's gallery
+
         String key = databaseReference.child(userId).child("Gallery").push().getKey();
 
         final StorageReference imageReference = storageReference.child(userId + "/Gallery/" + key + "." + getFileExtension(uri));
@@ -113,20 +113,20 @@ public class NewGallery extends AppCompatActivity {
         imageReference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                // Get the download URL of the uploaded image
+
                 imageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri downloadUri) {
-                        // Create a GalleryData object with the image URL, caption, and user ID
+
                         GalleryData dataClass = new GalleryData(downloadUri.toString(), caption, userId);
 
-                        // Set the data in the user's gallery in the database
+
                         databaseReference.child(userId).child("Gallery").child(key).setValue(dataClass);
 
                         progressBar.setVisibility(View.INVISIBLE);
                         Toast.makeText(NewGallery.this, "Image Uploaded", Toast.LENGTH_SHORT).show();
 
-                        // Finish the activity or perform any other desired actions
+
                         Intent intent = new Intent(NewGallery.this, NewGallery.class);
                         startActivity(intent);
                         finish();

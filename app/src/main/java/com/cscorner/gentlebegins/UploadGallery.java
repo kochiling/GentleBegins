@@ -45,7 +45,6 @@ public class UploadGallery extends AppCompatActivity {
         String user_id = currentUser.getUid();
 
         fab = findViewById(R.id.fab);
-
         gridView = findViewById(R.id.gridView);
         dataList = new ArrayList<>();
         adapter = new GalleryAdapter(this, dataList);
