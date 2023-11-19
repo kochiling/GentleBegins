@@ -1,11 +1,14 @@
 package com.cscorner.gentlebegins;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -24,6 +27,10 @@ public class profile_page extends AppCompatActivity {
     private TextView dobTV;
     private TextView genderTV;
 
+    TextView recordroutines;
+    TextView addgallery;
+    TextView profilepage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +41,15 @@ public class profile_page extends AppCompatActivity {
         relationshipTV = findViewById(R.id.textView8);
         dobTV = findViewById(R.id.textView9);
         genderTV = findViewById(R.id.textView10);
+        recordroutines = findViewById(R.id.UserRecord);
+        addgallery = findViewById(R.id.addgallery);
+        profilepage = findViewById(R.id.UserProfile);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Profile");
+        // Enable the Up button (back button)
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         FirebaseAuth dbAuth = FirebaseAuth.getInstance();
 
@@ -66,5 +82,34 @@ public class profile_page extends AppCompatActivity {
                 Log.e("Firebase", "Error: " + databaseError.getMessage());
             }
         });
+
+        recordroutines.setOnClickListener(view -> {
+            Intent intent = new Intent(profile_page.this, Record_routines.class);
+            startActivity(intent);
+            finish();
+        });
+
+        addgallery.setOnClickListener(view -> {
+            Intent intent = new Intent(profile_page.this, UploadGallery.class);
+            startActivity(intent);
+            finish();
+        });
+
+        profilepage.setOnClickListener(view -> {
+            Intent intent = new Intent(profile_page.this, HomePage.class);
+            startActivity(intent);
+            finish();
+
+        });
+
+
+    }
+
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {// Handle the Up button click (e.g., navigate back)
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
