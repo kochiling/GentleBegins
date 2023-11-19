@@ -143,6 +143,9 @@
     <string name="relationship_format"> Relationship: %s</string>
     <string name="dob_format">Date of Birth: %s</string>
     <string name="gender_format">Gender: %s</string>
+    <string name="gentlebeginlogo">gentlebeginlogo</string>
+    <string name="baby_s_profile">Baby\'s Profile</string>
+
 
 </resources>
 

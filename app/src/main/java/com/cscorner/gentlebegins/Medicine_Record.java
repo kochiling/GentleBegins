@@ -164,7 +164,7 @@ public class Medicine_Record extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(Medicine_Record.this, "Saved", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Medicine_Record.this, "Saved", Toast.LENGTH_LONG).show();
                             finish();
                         }
                     }
