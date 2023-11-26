@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
@@ -52,6 +54,7 @@ public class AddTipsDetailActivity extends AppCompatActivity {
             detailDesc.setText(bundle.getString("Description"));
             key = bundle.getString("Key");
             imageUrl = bundle.getString("Image");
+            Glide.with(this).load(bundle.getString("Image")).into(detailImage);
         }
 
         delete.setOnClickListener(new View.OnClickListener() {

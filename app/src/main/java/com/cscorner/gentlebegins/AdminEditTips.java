@@ -8,6 +8,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -80,7 +82,7 @@ public class AdminEditTips extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
-
+            Glide.with(AdminEditTips.this).load(bundle.getString("Image")).into(updateImage);
             updateTitle.setText(bundle.getString("Title"));
             updateLink.setText(bundle.getString("URL Link"));
             updateDesc.setText(bundle.getString("Description"));
@@ -189,4 +191,3 @@ public class AdminEditTips extends AppCompatActivity {
         });
     }
 }
-
